@@ -1,5 +1,4 @@
-<#import "../common.ftl" as c/>
-<@c.page title="People List">
+<#import "/spring.ftl" as spring/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,4 +34,3 @@
 </div>
 </body>
 </html>
-</@c.page>

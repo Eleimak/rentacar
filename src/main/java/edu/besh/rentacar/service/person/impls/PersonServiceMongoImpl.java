@@ -27,11 +27,11 @@ public class PersonServiceMongoImpl implements IPersonService {
             )
     );
 
-    /* @PostConstruct
+     @PostConstruct
     void init(){
         System.out.println("Saving in database...");
         repository.saveAll(people);
-    } */
+    }
 
     @Override
     public List<Person> getAll() {
