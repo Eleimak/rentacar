@@ -2,6 +2,7 @@ package edu.besh.rentacar.controller.web;
 
 import edu.besh.rentacar.entity.Person;
 import edu.besh.rentacar.service.person.impls.PersonServiceImpl;
+import edu.besh.rentacar.service.person.impls.PersonServiceMongoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +17,7 @@ import java.util.List;
 @Controller
 public class PersonWebController {
     @Autowired
-    PersonServiceImpl personService;
+    PersonServiceMongoImpl personService;
 
     @RequestMapping("/list")
     public String showAll(Model model) {
@@ -27,8 +28,12 @@ public class PersonWebController {
     }
 
     @RequestMapping("/delete/{id}")
-    public String delete(@PathVariable(value = "id")int id){
+    public String delete(Model model, @PathVariable(value = "id")int id){
         personService.delete(id);
-        return "redirect:/peopleList";
+        List<Person> list = personService.getAll();
+
+        model.addAttribute("people", list);
+
+        return "peopleList";
     }
 }
