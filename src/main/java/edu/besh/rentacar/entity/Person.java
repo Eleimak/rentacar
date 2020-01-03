@@ -2,13 +2,13 @@ package edu.besh.rentacar.entity;
 
 // TODO: insert head
 
-import com.sun.tools.javah.Gen;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Objects;
 
 @Document
 public class Person {
-
+    @Id
     private int id;
     private String firstName;
     private String lastName;

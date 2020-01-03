@@ -1,9 +1,6 @@
 package edu.besh.rentacar.fakedb;
 
-import edu.besh.rentacar.entity.Gender;
-import edu.besh.rentacar.entity.Person;
-import edu.besh.rentacar.entity.Types;
-import edu.besh.rentacar.entity.Vehicle;
+import edu.besh.rentacar.entity.*;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -39,5 +36,18 @@ public class FakeSet {
 
     public List<Vehicle> getVehicles() {
         return vehicles;
+    }
+
+
+    private List<Customer> customers = new ArrayList<>(
+            Arrays.asList(
+                    new Customer(1, people.get(0), "вулиця Михайла Драгомирова, 18, Київ, 01103", "+380973342143", "ivan_ivanov@gmail.com",vehicles,false)
+                    , new Customer(2, people.get(1), "Дніпровська набережна, Київ, 02081", "+380501325437", "lev_tolstoy@gmail.com", vehicles,false)
+                    , new Customer(3, people.get(2),"вулиця Антоновича, 44, Київ, 03186", "+380973213284", "mike_tyson@gmail.com", vehicles,false)
+            )
+    );
+
+    public List<Customer> getCustomers() {
+        return customers;
     }
 }

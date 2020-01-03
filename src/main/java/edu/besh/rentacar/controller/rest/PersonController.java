@@ -1,16 +1,12 @@
 package edu.besh.rentacar.controller.rest;
 
-import edu.besh.rentacar.entity.Gender;
 import edu.besh.rentacar.entity.Person;
-import edu.besh.rentacar.service.person.impls.PersonServiceImpl;
 import edu.besh.rentacar.service.person.impls.PersonServiceMongoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController

@@ -1,7 +1,6 @@
 package edu.besh.rentacar.service.person.interfaces;
 
 import edu.besh.rentacar.entity.Person;
-
 import java.util.List;
 
 public interface IPersonService {

@@ -6,8 +6,6 @@ import edu.besh.rentacar.repository.VehicleRepository;
 import edu.besh.rentacar.service.car.interfaces.ICarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service
