@@ -26,12 +26,14 @@ public class PersonServiceMongoImpl implements IPersonService {
                     new Person(4, "Ray", "Charles", Gender.MALE)
             )
     );
+/*
 
-     @PostConstruct
+   @PostConstruct
     void init(){
         System.out.println("Saving in database...");
         repository.saveAll(people);
     }
+*/
 
     @Override
     public List<Person> getAll() {
