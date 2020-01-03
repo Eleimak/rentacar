@@ -19,6 +19,7 @@
                     <th scope="col">Last Name</th>
                     <th scope="col">Gender</th>
                     <th scope="col">Delete</th>
+                    <th scope="col">Edit</th>
                 </tr>
                 <#list people as person>
         <tr>
@@ -27,12 +28,16 @@
             <td>${person.lastName}</td>
             <td>${person.gender}</td>
             <td><a href="/web/person/delete/${person.id}" Type="Button" class="btn btn-danger" >Delete</a></td> <!-- навесить route на кнопку -->
+            <!--Поставить фотку урны вместо конпки удаления-->
+            <td><a href="/web/person/edit/${person.id}" Type="Button" class="btn btn-danger" >Edit</a></td>
         </tr>
     </#list>
 
     </table>
     </form>
 </div>
+
+    <a href="/web/person/person/add">Add new person</a>
 
 </div>
 </body>
