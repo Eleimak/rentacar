@@ -12,12 +12,13 @@
     <h3>Car List</h3>
     <br>
     <div>
-            <table class="table table-sm table-striped table-bordered table-dark">
-                <tr class="bg-success">
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Gender</th>
+            <table class="table table-sm table-striped table-bordered">
+                <tr class="thead-dark">
+                    <th scope="col">ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Delete</th>
                 </tr>
                 <#list people as person>
         <tr>
@@ -25,6 +26,7 @@
             <td>${person.firstName}</td>
             <td>${person.lastName}</td>
             <td>${person.gender}</td>
+            <td><a href="/web/person/delete/${person.id}" Type="Button" class="btn btn-danger" >Delete</a></td> <!-- навесить route на кнопку -->
         </tr>
     </#list>
 
