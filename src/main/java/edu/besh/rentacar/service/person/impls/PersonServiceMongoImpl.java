@@ -11,6 +11,7 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PersonServiceMongoImpl implements IPersonService {
@@ -47,9 +48,19 @@ public class PersonServiceMongoImpl implements IPersonService {
 
     @Override
     public Person create(Person person) {
-        int recentID = repository.findAll().stream().mapToInt(item -> item.getId())
+       /* int recentID = repository.findAll().stream().mapToInt(item -> item.getId())
                 .boxed().max(Integer::compareTo).orElse(1);
-        person.setId(recentID+1);
+        person.setId(recentID+1); */
+
+        int recentID = 0;
+        List<Integer> list = repository.findAll().stream().mapToInt(item -> item.getId())
+                .boxed().collect(Collectors.toList());
+
+        /* List<Integer> sortedList = list.stream().sorted(Integer::compareTo).collect(Collectors.toList());
+        recentID = sortedList.get(sortedList.size()-1); */
+
+
+
         return repository.save(person);
     }
 

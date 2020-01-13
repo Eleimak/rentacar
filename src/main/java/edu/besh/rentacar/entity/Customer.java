@@ -13,20 +13,19 @@ public class Customer {
     private String address;
     private String phone;
     private String email;
-    //private int bonusPoints;
     private List<Vehicle> vehiclesList;
-    private boolean taken;
+    private boolean tookCar;
 
     public Customer() {
     }
 
-    public Customer(Person client, String address, String phone, String email, List<Vehicle> vehiclesList, boolean taken) {
+    public Customer(Person client, String address, String phone, String email, List<Vehicle> vehiclesList, boolean tookCar) {
         this.client = client;
         this.address = address;
         this.phone = phone;
         this.email = email;
         this.vehiclesList = vehiclesList;
-        this.taken = taken;
+        this.tookCar = tookCar;
     }
 
     public Customer(int id, Person client, String address, String phone, String email, List<Vehicle> vehiclesList, boolean taken) {
@@ -36,7 +35,7 @@ public class Customer {
         this.phone = phone;
         this.email = email;
         this.vehiclesList = vehiclesList;
-        this.taken = taken;
+        this.tookCar = tookCar;
     }
 
     public int getId() {
@@ -72,11 +71,11 @@ public class Customer {
     }
 
     public boolean isTaken() {
-        return taken;
+        return tookCar;
     }
 
     public void setTaken(boolean taken) {
-        this.taken = taken;
+        this.tookCar = tookCar;
     }
 
     @Override
@@ -88,7 +87,7 @@ public class Customer {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", vehiclesList=" + vehiclesList +
-                ", taken=" + taken +
+                ", tookCar=" + tookCar +
                 '}';
     }
 

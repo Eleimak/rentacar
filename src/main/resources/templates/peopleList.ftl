@@ -9,7 +9,7 @@
 <body>
 <div class="container-fluid">
     <br>
-    <h3>Car List</h3>
+    <h3>People List</h3>
     <br>
     <div>
             <table class="table table-sm table-striped table-bordered">
@@ -27,7 +27,7 @@
             <td>${person.firstName}</td>
             <td>${person.lastName}</td>
             <td>${person.gender}</td>
-            <td><a href="/web/person/delete/${person.id}" Type="Button" class="btn btn-danger" >Delete</a></td> <!-- навесить route на кнопку -->
+            <td><a href="/web/person/delete/${person.id}" Type="Button" class="btn btn-danger" >Delete</a></td><!-- навесить route на кнопку -->
             <!--Поставить фотку урны вместо конпки удаления-->
             <td><a href="/web/person/edit/${person.id}" Type="Button" class="btn btn-danger" >Edit</a></td>
         </tr>
