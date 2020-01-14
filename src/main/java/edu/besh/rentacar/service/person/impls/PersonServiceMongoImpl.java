@@ -48,11 +48,11 @@ public class PersonServiceMongoImpl implements IPersonService {
 
     @Override
     public Person create(Person person) {
-       /* int recentID = repository.findAll().stream().mapToInt(item -> item.getId())
+        int recentID = repository.findAll().stream().mapToInt(item -> item.getId())
                 .boxed().max(Integer::compareTo).orElse(1);
-        person.setId(recentID+1); */
+        person.setId(recentID+1);
 
-        int recentID = 0;
+      //  int recentID = 0;
         List<Integer> list = repository.findAll().stream().mapToInt(item -> item.getId())
                 .boxed().collect(Collectors.toList());
 

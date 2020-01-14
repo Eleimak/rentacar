@@ -62,7 +62,7 @@ public class PersonWebController {
         Person newPerson = new Person(personForm.getId(), personForm.getFirstName(), personForm.getLastName(), gender);
         personService.create(newPerson);
         model.addAttribute("people", personService.getAll());
-        return "personList";
+        return "redirect:/web/person/list";
     }
 
 
