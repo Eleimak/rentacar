@@ -1,9 +1,9 @@
-package edu.besh.rentacar.service.car.interfaces;
+package edu.besh.rentacar.service.vehicle.interfaces;
 
 import edu.besh.rentacar.entity.Vehicle;
 import java.util.List;
 
-public interface ICarService {
+public interface IVehicleService {
     List<Vehicle> getAll();
     Vehicle get(int id);
     Vehicle create(Vehicle vehicle);

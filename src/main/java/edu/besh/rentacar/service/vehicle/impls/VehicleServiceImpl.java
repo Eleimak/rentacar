@@ -1,15 +1,17 @@
-package edu.besh.rentacar.service.car.impls;
+package edu.besh.rentacar.service.vehicle.impls;
 
 import edu.besh.rentacar.entity.Vehicle;
 import edu.besh.rentacar.fakedb.FakeSet;
 import edu.besh.rentacar.repository.VehicleRepository;
-import edu.besh.rentacar.service.car.interfaces.ICarService;
+import edu.besh.rentacar.service.vehicle.interfaces.IVehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service
-public class CarServiceImpl implements ICarService {
+public class VehicleServiceImpl implements IVehicleService {
 
     @Autowired
     VehicleRepository repository;
@@ -17,10 +19,10 @@ public class CarServiceImpl implements ICarService {
     @Autowired
     FakeSet fakeSet;
 
-   /* @PostConstruct
+    @PostConstruct
     void init(){
         repository.saveAll(fakeSet.getVehicles());
-    } */
+    }
 
     @Override
     public List<Vehicle> getAll() {

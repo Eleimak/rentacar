@@ -1,18 +1,18 @@
 package edu.besh.rentacar.controller.rest;
 
 import edu.besh.rentacar.entity.Vehicle;
-import edu.besh.rentacar.service.car.impls.CarServiceImpl;
+import edu.besh.rentacar.service.vehicle.impls.VehicleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+
 @RequestMapping("/vehicle")
 public class VehicleController {
     @Autowired
-    CarServiceImpl service;
+    VehicleServiceImpl service;
 
     @RequestMapping("/get/list")
     List<Vehicle> getAll(){
