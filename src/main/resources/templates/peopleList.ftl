@@ -37,7 +37,7 @@
     </form>
 </div>
 
-    <a href="/web/person/person/add">Add new person</a>
+    <a href="/web/person/add">Add new person</a>
 
 </div>
 </body>

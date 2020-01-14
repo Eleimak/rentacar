@@ -18,7 +18,7 @@
             Last name:<@spring.formInput "personForm.lastName" "" "text"/>
             <br>
             Gender:<@spring.formInput "personForm.gender" "" "text"/>
-            <input type="submit" value="Create"/>
+            <input type="submit" value="Save"/>
         </form>
     </fieldset>
 </div>

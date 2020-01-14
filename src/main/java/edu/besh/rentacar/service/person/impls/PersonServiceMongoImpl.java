@@ -66,7 +66,7 @@ public class PersonServiceMongoImpl implements IPersonService {
 
     @Override
     public Person edit(Person person) {
-        return null;
+        return repository.save(person);
     }
 
     @Override

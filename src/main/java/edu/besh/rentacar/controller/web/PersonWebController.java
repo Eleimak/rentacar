@@ -38,7 +38,7 @@ public class PersonWebController {
         return "peopleList";
     }
 
-    @RequestMapping(value = "/person/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addPerson(Model model){
         PersonForm personForm = new PersonForm();
 
@@ -46,7 +46,7 @@ public class PersonWebController {
         return "addPerson";
     }
 
-    @RequestMapping(value = "/person/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addPerson(Model model,
                              @ModelAttribute("personForm") PersonForm personForm){
 
@@ -66,7 +66,7 @@ public class PersonWebController {
     }
 
 
-    @RequestMapping(value = "/person/edit/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String editPerson(Model model, @PathVariable(value = "id") int id){
         PersonForm personForm = new PersonForm();
         Person person = personService.get(id);
@@ -79,4 +79,25 @@ public class PersonWebController {
         model.addAttribute("personForm", personForm);
         return "addPerson";
     }
+
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+    public String editPerson(Model model,
+                            @ModelAttribute("personForm") PersonForm personForm){
+
+        // Group group = groupService.get(personForm.getGroup());
+        Gender gender = null;
+        if (personForm.getGender().toUpperCase().equals("MALE")){
+            gender = Gender.MALE;
+        } else if (personForm.getGender().toUpperCase().equals("FEMALE")){
+            gender = Gender.FEMALE;
+        } else {
+            System.out.println("Invalid input");
+        }
+        Person newPerson = new Person(personForm.getId(), personForm.getFirstName(), personForm.getLastName(), gender);
+        personService.edit(newPerson);
+        model.addAttribute("people", personService.getAll());
+        return "redirect:/web/person/list";
+    }
+
 }
