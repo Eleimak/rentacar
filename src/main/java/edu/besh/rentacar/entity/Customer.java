@@ -46,6 +46,30 @@ public class Customer {
         this.id = id;
     }
 
+    public Person getClient() {
+        return client;
+    }
+
+    public void setClient(Person client) {
+        this.client = client;
+    }
+
+    public List<Vehicle> getVehiclesList() {
+        return vehiclesList;
+    }
+
+    public void setVehiclesList(List<Vehicle> vehiclesList) {
+        this.vehiclesList = vehiclesList;
+    }
+
+    public boolean isTookCar() {
+        return tookCar;
+    }
+
+    public void setTookCar(boolean tookCar) {
+        this.tookCar = tookCar;
+    }
+
     public String getAddress() {
         return address;
     }

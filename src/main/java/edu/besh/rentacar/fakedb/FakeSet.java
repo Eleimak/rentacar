@@ -41,7 +41,7 @@ public class FakeSet {
 
     private List<Customer> customers = new ArrayList<>(
             Arrays.asList(
-                    new Customer(1, people.get(0), "вулиця Михайла Драгомирова, 18, Київ, 01103", "+380973342143", "ivan_ivanov@gmail.com",vehicles,false)
+                    new Customer(1,  new Person(7, "John", "Doe", Gender.MALE), "вулиця Михайла Драгомирова, 18, Київ, 01103", "+380973342143", "ivan_ivanov@gmail.com",vehicles,false)
                     , new Customer(2, people.get(1), "Дніпровська набережна, Київ, 02081", "+380501325437", "lev_tolstoy@gmail.com", vehicles,false)
                     , new Customer(3, people.get(2),"вулиця Антоновича, 44, Київ, 03186", "+380973213284", "mike_tyson@gmail.com", vehicles,false)
             )
