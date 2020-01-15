@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>People List</title>
+    <title>Vehicles List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
 <div class="container-fluid">
     <br>
-    <h3>Vehicle List</h3>
+    <h3>Vehicles List</h3>
     <br>
     <div>
         <table class="table table-sm table-striped table-bordered">
@@ -18,18 +18,45 @@
                 <th scope="col">Brand</th>
                 <th scope="col">Model</th>
                 <th scope="col">Cost</th>
+                <th scope="col">License Plate Number</th>
+                <th scope="col">Type</th>
+                <th scope="col">Year of Issue</th>
+                <th scope="col">Rental Price</th>
+                <th scope="col">Is being repaired</th>
+                <th scope="col">Taken</th>
                 <th scope="col">Delete</th>
                 <th scope="col">Edit</th>
             </tr>
             <#list carset as car>
+
+                <#assign repair = "">
+                <#if car.maintenance == true>
+                    <#assign repair = "yes">
+                <#else>
+                    <#assign repair = "no">
+                </#if>
+                <#assign rent = "">
+                <#if car.taken == true>
+                    <#assign rent = "yes">
+                <#else>
+                    <#assign rent = "no">
+                </#if>
+
                 <tr>
                     <td>${car.id}</td>
                     <td>${car.brand}</td>
                     <td>${car.model}</td>
                     <td>${car.cost}</td>
-                    <td><a href="/web/car/delete/${car.id}" Type="Button" class="btn btn-danger" >Delete</a></td><!-- навесить route на кнопку -->
+                    <td>${car.licensePlate}</td>
+                    <td></td>
+                    <td>${car.yearOfIssue}</td>
+                    <td>${car.rentalFee}</td>
+                    <td>${repair}</td>
+                    <td>${rent}</td>
+
+                    <td><a href="/web/vehicle/delete/${car.id}" Type="Button" class="btn btn-danger" >Delete</a></td><!-- навесить route на кнопку -->
                     <!--Поставить фотку урны вместо конпки удаления-->
-                    <td><a href="/web/car/edit/${car.id}" Type="Button" class="btn btn-danger" >Edit</a></td>
+                    <td><a href="/web/vehicle/edit/${car.id}" Type="Button" class="btn btn-danger" >Edit</a></td>
                 </tr>
             </#list>
 
@@ -37,7 +64,7 @@
         </form>
     </div>
 
-    <a href="/web/car/add">Add new car</a>
+    <a href="/web/vehicle/add">Add new car</a>
 
 </div>
 </body>

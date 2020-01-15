@@ -13,28 +13,28 @@ public class Customer {
     private String address;
     private String phone;
     private String email;
-    private List<Vehicle> vehiclesList;
+    private Vehicle car;
     private boolean tookCar;
 
     public Customer() {
     }
 
-    public Customer(Person client, String address, String phone, String email, List<Vehicle> vehiclesList, boolean tookCar) {
+    public Customer(Person client, String address, String phone, String email, Vehicle car, boolean tookCar) {
         this.client = client;
         this.address = address;
         this.phone = phone;
         this.email = email;
-        this.vehiclesList = vehiclesList;
+        this.car = car;
         this.tookCar = tookCar;
     }
 
-    public Customer(int id, Person client, String address, String phone, String email, List<Vehicle> vehiclesList, boolean taken) {
+    public Customer(int id, Person client, String address, String phone, String email, Vehicle car, boolean tookCar) {
         this.id = id;
         this.client = client;
         this.address = address;
         this.phone = phone;
         this.email = email;
-        this.vehiclesList = vehiclesList;
+        this.car = car;
         this.tookCar = tookCar;
     }
 
@@ -52,22 +52,6 @@ public class Customer {
 
     public void setClient(Person client) {
         this.client = client;
-    }
-
-    public List<Vehicle> getVehiclesList() {
-        return vehiclesList;
-    }
-
-    public void setVehiclesList(List<Vehicle> vehiclesList) {
-        this.vehiclesList = vehiclesList;
-    }
-
-    public boolean isTookCar() {
-        return tookCar;
-    }
-
-    public void setTookCar(boolean tookCar) {
-        this.tookCar = tookCar;
     }
 
     public String getAddress() {
@@ -94,11 +78,19 @@ public class Customer {
         this.email = email;
     }
 
-    public boolean isTaken() {
+    public Vehicle getCar() {
+        return car;
+    }
+
+    public void setCar(Vehicle car) {
+        this.car = car;
+    }
+
+    public boolean isTookCar() {
         return tookCar;
     }
 
-    public void setTaken(boolean taken) {
+    public void setTookCar(boolean tookCar) {
         this.tookCar = tookCar;
     }
 
@@ -110,7 +102,7 @@ public class Customer {
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
-                ", vehiclesList=" + vehiclesList +
+                ", car=" + car +
                 ", tookCar=" + tookCar +
                 '}';
     }
@@ -120,12 +112,12 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return id == customer.id;
+        return getId() == customer.getId();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(getId());
     }
 }
 

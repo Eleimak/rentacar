@@ -59,8 +59,6 @@ public class PersonServiceMongoImpl implements IPersonService {
         /* List<Integer> sortedList = list.stream().sorted(Integer::compareTo).collect(Collectors.toList());
         recentID = sortedList.get(sortedList.size()-1); */
 
-
-
         return repository.save(person);
     }
 
