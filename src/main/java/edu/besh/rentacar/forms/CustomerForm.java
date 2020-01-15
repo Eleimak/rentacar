@@ -1,12 +1,10 @@
-package edu.besh.rentacar.entity;
+package edu.besh.rentacar.forms;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import java.util.Objects;
+import edu.besh.rentacar.entity.Person;
+import edu.besh.rentacar.entity.Vehicle;
 
-@Document
-public class Customer {
-    @Id
+public class CustomerForm {
+
     private int id;
     private Person client;
     private String address;
@@ -15,26 +13,7 @@ public class Customer {
     private Vehicle car;
     private boolean tookCar;
 
-    public Customer() {
-    }
-
-    public Customer(Person client, String address, String phone, String email, Vehicle car, boolean tookCar) {
-        this.client = client;
-        this.address = address;
-        this.phone = phone;
-        this.email = email;
-        this.car = car;
-        this.tookCar = tookCar;
-    }
-
-    public Customer(int id, Person client, String address, String phone, String email, Vehicle car, boolean tookCar) {
-        this.id = id;
-        this.client = client;
-        this.address = address;
-        this.phone = phone;
-        this.email = email;
-        this.car = car;
-        this.tookCar = tookCar;
+    public CustomerForm() {
     }
 
     public int getId() {
@@ -95,7 +74,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "CustomerForm{" +
                 "id=" + id +
                 ", client=" + client +
                 ", address='" + address + '\'' +
@@ -105,19 +84,4 @@ public class Customer {
                 ", tookCar=" + tookCar +
                 '}';
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Customer customer = (Customer) o;
-        return getId() == customer.getId();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
 }
-
-/* База - контроллер */

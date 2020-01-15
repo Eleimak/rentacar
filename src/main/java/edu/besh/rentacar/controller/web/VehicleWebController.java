@@ -1,21 +1,15 @@
 package edu.besh.rentacar.controller.web;
 
-import edu.besh.rentacar.entity.Gender;
-import edu.besh.rentacar.entity.Person;
 import edu.besh.rentacar.entity.Types;
 import edu.besh.rentacar.entity.Vehicle;
-import edu.besh.rentacar.forms.PersonForm;
 import edu.besh.rentacar.forms.VehicleForm;
 import edu.besh.rentacar.service.vehicle.impls.VehicleServiceImpl;
-import edu.besh.rentacar.service.vehicle.interfaces.IVehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Type;
 import java.util.List;
-
 
 @RequestMapping("/web/vehicle")
 @CrossOrigin("*")
