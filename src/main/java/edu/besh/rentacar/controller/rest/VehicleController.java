@@ -10,6 +10,7 @@ import java.util.List;
 
 
 @RequestMapping("/vehicle")
+@RestController
 public class VehicleController {
     @Autowired
     VehicleServiceImpl service;

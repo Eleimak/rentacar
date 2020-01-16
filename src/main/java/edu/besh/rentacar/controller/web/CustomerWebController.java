@@ -47,10 +47,11 @@ public class CustomerWebController {
         @RequestMapping(value = "/add", method = RequestMethod.POST)
         public String addCustomer(Model model,
                                 @ModelAttribute("customerForm") CustomerForm customerForm){
-
+/*
             Customer newCustomer = new Customer(customerForm.getId(), customerForm.getClient(), customerForm.getAddress()
                     , customerForm.getPhone(), customerForm.getEmail(), customerForm.getCar(), customerForm.isTookCar());
-            customerService.create(newCustomer);
+   */
+       customerService.create(new Customer());
             model.addAttribute("customers", customerService.getAll());
             return "redirect:/web/customer/list";
         }
@@ -62,11 +63,11 @@ public class CustomerWebController {
             Customer customer = customerService.get(id);
 
             customerForm.setId(customer.getId());
-            customerForm.setClient(customer.getClient());
+            customerForm.setClient(customer.getClient().getFirstName());
             customerForm.setAddress(customer.getAddress());
             customerForm.setPhone(customer.getPhone());
             customerForm.setEmail(customer.getEmail());
-            customerForm.setCar(customer.getCar());
+            customerForm.setCar(customer.getCar().getLicensePlate());
             customerForm.setTookCar(customer.isTookCar());
 
             model.addAttribute("customerForm", customerForm);
@@ -77,10 +78,12 @@ public class CustomerWebController {
         @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
         public String editCustomer(Model model,
                                  @ModelAttribute("customerForm") CustomerForm customerForm){
-
+/*
             Customer newCustomer = new Customer(customerForm.getId(), customerForm.getClient(), customerForm.getAddress()
                     , customerForm.getPhone(), customerForm.getEmail(), customerForm.getCar(), customerForm.isTookCar());
-            customerService.edit(newCustomer);
+            */
+
+            customerService.edit(new Customer());
             model.addAttribute("customers", customerService.getAll());
             return "redirect:/web/customer/list";
         }

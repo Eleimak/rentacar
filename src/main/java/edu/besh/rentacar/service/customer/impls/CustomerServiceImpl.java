@@ -24,10 +24,10 @@ public class CustomerServiceImpl implements ICustomerService {
     @Autowired
     FakeSet fakeSet;
 
-    //@PostConstruct
+   @PostConstruct
     void init(){
-        Person person = personRepository.findById(1).orElse(null);
-        Customer customer = new Customer(4, person, "", "", "",null, true);
+       // Person person = personRepository.findById(1).orElse(null);
+       // Customer customer = new Customer(4, person, "", "", "",null, true);
         repository.deleteAll();
         repository.saveAll(fakeSet.getCustomers());
         //repository.saveAll(fakeSet.getCustomers());

@@ -6,11 +6,11 @@ import edu.besh.rentacar.entity.Vehicle;
 public class CustomerForm {
 
     private int id;
-    private Person client;
+    private String client;
     private String address;
     private String phone;
     private String email;
-    private Vehicle car;
+    private String car;
     private boolean tookCar;
 
     public CustomerForm() {
@@ -24,11 +24,11 @@ public class CustomerForm {
         this.id = id;
     }
 
-    public Person getClient() {
+    public String getClient() {
         return client;
     }
 
-    public void setClient(Person client) {
+    public void setClient(String client) {
         this.client = client;
     }
 
@@ -56,11 +56,11 @@ public class CustomerForm {
         this.email = email;
     }
 
-    public Vehicle getCar() {
+    public String getCar() {
         return car;
     }
 
-    public void setCar(Vehicle car) {
+    public void setCar(String car) {
         this.car = car;
     }
 

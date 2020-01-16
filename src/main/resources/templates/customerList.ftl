@@ -27,12 +27,12 @@
             <#list customers as customer>
                 <tr>
                     <td>${customer.id}</td>
-                    <td>${customer.client}</td>
+                    <td>${customer.client.firstName}</td>
                     <td>${customer.address}</td>
                     <td>${customer.phone}</td>
                     <td>${customer.email}</td>
-                    <td>${customer.car}</td>
-                    <td>${customer.tookCar}</td>
+                    <td>${customer.car.licensePlate}</td>
+                    <td>true</td>
                     <td><a href="/web/customer/delete/${customer.id}" Type="Button" class="btn btn-danger" >Delete</a></td><!-- навесить route на кнопку -->
                     <!--Поставить фотку урны вместо конпки удаления-->
                     <td><a href="/web/customer/edit/${customer.id}" Type="Button" class="btn btn-danger" >Edit</a></td>
