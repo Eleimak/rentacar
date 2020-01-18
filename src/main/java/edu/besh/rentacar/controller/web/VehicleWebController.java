@@ -59,6 +59,10 @@ public class VehicleWebController {
             type = Types.SUV;
         } else {
             System.out.println("Invalid input");
+
+
+
+
         }
 
 
