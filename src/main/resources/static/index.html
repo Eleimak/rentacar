@@ -4,14 +4,35 @@
     <meta charset="UTF-8">
     <title>rentAcar | Welcome Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Cuprum" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('img/backgroundPicture.jpeg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
-<h1>Hello World!</h1>
-<p><a target="_self" href="localhost:8080/web/person/list">People table</a></p>
-<p><a target="_self" href="localhost:8080/web/vehicle/list">Cars table</a></p>
-<p><a target="_self" href="localhost:8080/web/customer/list">Customers table</a></p>
-<p><a target="_self" href="localhost:8080/person/get/list">People</a></p>
-<p><a target="_self" href="localhost:8080/vehicle/get/list">Vehicles</a></p>
-<p><a target="_self" href="localhost:8080/customer/get/list">Customers</a></p>
+<header>
+    <nav class="dws-menu">
+        <ul>
+            <li><a target="_self" href="localhost:8080/"><i class="fa fa-home"></i>Home</a></li>
+
+            <li><a href="#"><i class="fa fa-th-list"></i>Tables</a>
+                <ul>
+                    <li><a target="_self" href="localhost:8080/web/person/list">People</a></li>
+                    <li><a target="_self" href="localhost:8080/web/vehicle/list">Cars</a></li>
+                    <li><a target="_self" href="localhost:8080/web/customer/list">Customers</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="fa fa-envelope-open"></i>Contacts</a></li>
+        </ul>
+    </nav>
+</header>
+
 </body>
 </html>
