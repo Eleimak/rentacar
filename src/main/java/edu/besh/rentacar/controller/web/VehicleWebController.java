@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RequestMapping("/web/vehicle")
@@ -40,8 +41,10 @@ public class VehicleWebController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addVehicle(Model model){
         VehicleForm vehicleForm = new VehicleForm();
+        List types = Arrays.asList(Types.values());
 
         model.addAttribute("vehicleForm", vehicleForm);
+        model.addAttribute("types", types);
         return "addVehicle";
     }
 
@@ -57,6 +60,12 @@ public class VehicleWebController {
         } else {
             System.out.println("Invalid input");
         }
+
+
+
+
+
+
 
         Vehicle newVehicle = new Vehicle(vehicleForm.getId(), vehicleForm.getBrand(), vehicleForm.getModel()
                 ,vehicleForm.getCost(), vehicleForm.getLicensePlate(), type, vehicleForm.getYearOfIssue()

@@ -21,7 +21,8 @@
             <br>
             License Plate:<@spring.formInput "vehicleForm.licensePlate" "" "text"/>
             <br>
-            Type:<@spring.formInput "vehicleForm.type" "" "text"/>
+       <#--     Type:<@spring.formInput "vehicleForm.type" "" "text"/>-->
+            Type:<@spring.formSingleSelect "vehicleForm.type", types, ""/>
             <br>
             Year of Issue:<@spring.formInput "vehicleForm.yearOfIssue" "" "text"/>
             <br>
