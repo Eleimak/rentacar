@@ -66,8 +66,6 @@ public class CustomerWebController {
             List<String> carList = vehicleService.getAll().stream()
                     .map(Vehicle::getLicensePlate).collect(Collectors.toList());
 
-
-            System.out.println(prsMap);
             model.addAttribute("customerForm", customerForm);
             model.addAttribute("prs", prsMap);
             model.addAttribute("prsl", personList);
@@ -117,6 +115,17 @@ public class CustomerWebController {
             customerForm.setCar(customer.getCar().getLicensePlate());
             customerForm.setTookCar(customer.isTookCar());
 
+            List<String> personList = personServiceMongo.getAll().stream()
+                    .map(Person::getLastName).collect(Collectors.toList());
+
+            List<String> carList = vehicleService.getAll().stream()
+                    .map(Vehicle::getLicensePlate).collect(Collectors.toList());
+
+
+
+            model.addAttribute("prsl", personList);
+            model.addAttribute("crsl", carList);
+
             model.addAttribute("customerForm", customerForm);
             return "addCustomer";
         }
@@ -125,12 +134,25 @@ public class CustomerWebController {
         @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
         public String editCustomer(Model model,
                                  @ModelAttribute("customerForm") CustomerForm customerForm){
-/*
-            Customer newCustomer = new Customer(customerForm.getId(), customerForm.getClient(), customerForm.getAddress()
-                    , customerForm.getPhone(), customerForm.getEmail(), customerForm.getCar(), customerForm.isTookCar());
-            */
 
-            customerService.edit(new Customer());
+            Person person = personServiceMongo.getAll().stream()
+                    .filter(item -> item.getLastName().equals(customerForm.getClient()))
+                    .findFirst().orElse( new Person());
+            Vehicle vehicle = vehicleService.getAll().stream()
+                    .filter(car -> car.getLicensePlate().equals(customerForm.getCar()))
+                    .findFirst().orElse(new Vehicle());
+
+            Customer customerEdited = new Customer();
+
+            customerEdited.setId(customerForm.getId());
+            customerEdited.setClient(person);
+            customerEdited.setPhone(customerForm.getPhone());
+            customerEdited.setEmail(customerForm.getEmail());
+            customerEdited.setAddress(customerForm.getAddress());
+            customerEdited.setCar(vehicle);
+            customerEdited.setTookCar(true);
+
+            customerService.edit(customerEdited);
             model.addAttribute("customers", customerService.getAll());
             return "redirect:/web/customer/list";
         }
