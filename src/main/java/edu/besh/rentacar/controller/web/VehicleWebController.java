@@ -109,14 +109,16 @@ public class VehicleWebController {
         vehicleForm.setModel(vehicle.getModel());
         vehicleForm.setCost(vehicle.getCost());
         vehicleForm.setLicensePlate(vehicle.getLicensePlate());
-        vehicleForm.setLicensePlate(vehicle.getLicensePlate());
-        vehicleForm.setType(vehicle.getType().toString());
+       // vehicleForm.setType(vehicle.getType().toString());
         vehicleForm.setYearOfIssue(vehicle.getYearOfIssue());
         vehicleForm.setRentalFee(vehicle.getRentalFee());
         vehicleForm.setMaintenance(vehicle.isMaintenance());
         vehicleForm.setTaken(vehicle.isTaken());
 
+        List types = Arrays.asList(Types.values());
+
         model.addAttribute("vehicleForm", vehicleForm);
+        model.addAttribute("types", types);
         return "addVehicle";
     }
 
@@ -125,14 +127,30 @@ public class VehicleWebController {
                              @ModelAttribute("vehicleForm") VehicleForm vehicleForm){
 
         Types type = null;
-        if (vehicleForm.getType().toUpperCase().equals("CROSSOVER")){
-            type = Types.CROSSOVER;
-        } else if (vehicleForm.getType().toUpperCase().equals("SUV")){
-            type = Types.SUV;
-        } else {
-            System.out.println("Invalid input");
-        }
+        String carType = vehicleForm.getType();
 
+
+        switch(carType) {
+            case "CROSSOVER": type = Types.CROSSOVER;
+                break;
+            case "SUV": type = Types.SUV;
+                break;
+            case "HATCHBACK": type = Types.HATCHBACK;
+                break;
+            case "SEDAN": type = Types.SEDAN;
+                break;
+            case "ELECTROMOBILE": type = Types.ELECTROMOBILE;
+                break;
+            case "COUPE": type = Types.COUPE;
+                break;
+            case "CONVERTIBLE": type = Types.CONVERTIBLE;
+                break;
+            case "VAN": type = Types.VAN;
+                break;
+            case "PICKUP": type = Types.PICKUP;
+                break;
+
+        }
         Vehicle newVehicle = new Vehicle(vehicleForm.getId(), vehicleForm.getBrand(), vehicleForm.getModel()
                 ,vehicleForm.getCost(), vehicleForm.getLicensePlate(), type, vehicleForm.getYearOfIssue()
                 , vehicleForm.getRentalFee(), vehicleForm.isMaintenance(), vehicleForm.isTaken());
