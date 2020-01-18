@@ -48,7 +48,7 @@
                     <td>${car.model}</td>
                     <td>${car.cost}</td>
                     <td>${car.licensePlate}</td>
-                    <td></td>
+                    <td>${car.type}</td>
                     <td>${car.yearOfIssue}</td>
                     <td>${car.rentalFee}</td>
                     <td>${repair}</td>

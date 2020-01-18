@@ -59,12 +59,32 @@ public class VehicleWebController {
             type = Types.SUV;
         } else {
             System.out.println("Invalid input");
-
-
-
-
         }
 
+        String carType = vehicleForm.getType();
+
+
+        switch(carType) {
+            case "CROSSOVER": type = Types.CROSSOVER;
+                break;
+            case "SUV": type = Types.SUV;
+                break;
+            case "HATCHBACK": type = Types.HATCHBACK;
+                break;
+            case "SEDAN": type = Types.SEDAN;
+                break;
+            case "ELECTROMOBILE": type = Types.ELECTROMOBILE;
+                break;
+             case "COUPE": type = Types.COUPE;
+                break;
+             case "CONVERTIBLE": type = Types.CONVERTIBLE;
+                break;
+             case "VAN": type = Types.VAN;
+                break;
+            case "PICKUP": type = Types.PICKUP;
+                break;
+
+        }
 
 
 
