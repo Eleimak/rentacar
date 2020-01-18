@@ -122,7 +122,7 @@ public class VehicleWebController {
         return "addVehicle";
     }
 
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public String editVehicle(Model model,
                              @ModelAttribute("vehicleForm") VehicleForm vehicleForm){
 
