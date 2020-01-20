@@ -72,9 +72,21 @@ public class PersonServiceMongoImpl implements IPersonService {
         repository.deleteById(id);
     }
 
-    public List<Person> search(String name) {
-        return this.getAll().stream().filter(person -> person.getLastName()
-                .contains(name)).collect(Collectors.toList());
+
+
+    public List<Person> search(String word) {
+
+        List<Person>  found = new ArrayList<>();
+
+        List<Person> persons = this.getAll();
+
+        for (Person person : persons) {
+           if (person.getLastName().contains(word)){
+
+               found.add(person);
+           }
+        }
+        return found;
 
     }
 
