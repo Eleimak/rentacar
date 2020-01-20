@@ -10,13 +10,30 @@
 <div class="container-fluid">
     <br>
     <h3>People List</h3>
+
+
+<#--
+    <div>
+        <fieldset>
+            <legend>Find  person</legend>
+            <form name="person" action="" method="POST">
+                First name:<@spring.formInput "" "text"/>
+                <br>
+
+                <input type="submit" value="Search"/>
+            </form>
+        </fieldset>
+    </div>
+-->
+
+
     <br>
     <div>
             <table class="table table-sm table-striped table-bordered">
                 <tr class="thead-dark">
                     <th scope="col">ID</th>
                     <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
+                    <th scope="col">Last Name  ___ <button type="button">Click to sort</button></th>
                     <th scope="col">Gender</th>
                     <th scope="col">Delete</th>
                     <th scope="col">Edit</th>

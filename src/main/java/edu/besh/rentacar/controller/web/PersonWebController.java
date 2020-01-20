@@ -28,6 +28,14 @@ public class PersonWebController {
         return "peopleList";
     }
 
+    @RequestMapping("/list/search/{word}")
+    public String showAll(Model model, @PathVariable(value = "word") String word) {
+        List<Person> list = personService.search(word);
+
+        model.addAttribute("people", list);
+        return "peopleList";
+    }
+
     @RequestMapping("/delete/{id}")
     public String delete(Model model, @PathVariable(value = "id")int id){
         personService.delete(id);
