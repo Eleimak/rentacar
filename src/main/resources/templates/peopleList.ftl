@@ -10,6 +10,23 @@
 <div class="container-fluid">
     <br>
     <h3>People List</h3>
+
+
+<#--
+    <div>
+        <fieldset>
+            <legend>Find  person</legend>
+            <form name="person" action="" method="POST">
+                First name:<@spring.formInput "" "text"/>
+                <br>
+
+                <input type="submit" value="Search"/>
+            </form>
+        </fieldset>
+    </div>
+-->
+
+
     <br>
     <div>
             <table class="table table-sm table-striped table-bordered">

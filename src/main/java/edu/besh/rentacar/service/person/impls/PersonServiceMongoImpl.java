@@ -73,7 +73,9 @@ public class PersonServiceMongoImpl implements IPersonService {
     }
 
     public List<Person> search(String name) {
-        return null;
+        return this.getAll().stream().filter(person -> person.getLastName()
+                .contains(name)).collect(Collectors.toList());
+
     }
 
 }
