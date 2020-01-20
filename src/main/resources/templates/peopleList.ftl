@@ -33,7 +33,7 @@
                 <tr class="thead-dark">
                     <th scope="col">ID</th>
                     <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
+                    <th scope="col">Last Name  ___ <button type="button">Click to sort</button></th>
                     <th scope="col">Gender</th>
                     <th scope="col">Delete</th>
                     <th scope="col">Edit</th>
