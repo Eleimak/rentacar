@@ -1,13 +1,19 @@
+/*
+ * VehicleServiceImpl
+ *
+ * Version 1
+ *
+ * Artem Beshevli
+ */
+
 package edu.besh.rentacar.service.vehicle.impls;
 
-import edu.besh.rentacar.entity.Person;
 import edu.besh.rentacar.entity.Vehicle;
 import edu.besh.rentacar.fakedb.FakeSet;
 import edu.besh.rentacar.repository.VehicleRepository;
 import edu.besh.rentacar.service.vehicle.interfaces.IVehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.stream.Collectors;

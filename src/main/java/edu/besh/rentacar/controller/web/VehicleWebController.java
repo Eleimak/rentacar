@@ -1,3 +1,11 @@
+/*
+ * VehicleWebController
+ *
+ * Version 1
+ *
+ * Artem Beshevli
+ */
+
 package edu.besh.rentacar.controller.web;
 
 import edu.besh.rentacar.entity.Types;
@@ -8,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -63,7 +70,6 @@ public class VehicleWebController {
 
         String carType = vehicleForm.getType();
 
-
         switch(carType) {
             case "CROSSOVER": type = Types.CROSSOVER;
                 break;
@@ -86,11 +92,6 @@ public class VehicleWebController {
 
         }
 
-
-
-
-
-
         Vehicle newVehicle = new Vehicle(vehicleForm.getId(), vehicleForm.getBrand(), vehicleForm.getModel()
                 ,vehicleForm.getCost(), vehicleForm.getLicensePlate(), type, vehicleForm.getYearOfIssue()
                 , vehicleForm.getRentalFee(), vehicleForm.isMaintenance(), vehicleForm.isTaken());
@@ -109,7 +110,6 @@ public class VehicleWebController {
         vehicleForm.setModel(vehicle.getModel());
         vehicleForm.setCost(vehicle.getCost());
         vehicleForm.setLicensePlate(vehicle.getLicensePlate());
-       // vehicleForm.setType(vehicle.getType().toString());
         vehicleForm.setYearOfIssue(vehicle.getYearOfIssue());
         vehicleForm.setRentalFee(vehicle.getRentalFee());
         vehicleForm.setMaintenance(vehicle.isMaintenance());
@@ -128,7 +128,6 @@ public class VehicleWebController {
 
         Types type = null;
         String carType = vehicleForm.getType();
-
 
         switch(carType) {
             case "CROSSOVER": type = Types.CROSSOVER;

@@ -1,6 +1,12 @@
-package edu.besh.rentacar.forms;
+/*
+ * PersonForm
+ *
+ * Version 1
+ *
+ * Artem Beshevli
+ */
 
-import edu.besh.rentacar.entity.Gender;
+package edu.besh.rentacar.forms;
 
 public class PersonForm {
     private int id;

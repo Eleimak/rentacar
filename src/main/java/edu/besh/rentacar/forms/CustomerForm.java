@@ -1,7 +1,12 @@
-package edu.besh.rentacar.forms;
+/*
+ * CustomerForm
+ *
+ * Version 1
+ *
+ * Artem Beshevli
+ */
 
-import edu.besh.rentacar.entity.Person;
-import edu.besh.rentacar.entity.Vehicle;
+package edu.besh.rentacar.forms;
 
 public class CustomerForm {
 

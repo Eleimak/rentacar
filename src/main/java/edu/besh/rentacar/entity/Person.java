@@ -1,3 +1,11 @@
+/*
+ * Person
+ *
+ * Version 1
+ *
+ * Artem Beshevli
+ */
+
 package edu.besh.rentacar.entity;
 
 // TODO: insert head

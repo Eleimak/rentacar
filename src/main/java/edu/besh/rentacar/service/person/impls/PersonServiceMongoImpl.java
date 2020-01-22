@@ -1,3 +1,11 @@
+/*
+ * PersonServiceMongoImpl
+ *
+ * Version 1
+ *
+ * Artem Beshevli
+ */
+
 package edu.besh.rentacar.service.person.impls;
 
 import edu.besh.rentacar.entity.Gender;
@@ -6,8 +14,6 @@ import edu.besh.rentacar.repository.PersonRepository;
 import edu.besh.rentacar.service.person.interfaces.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -91,3 +97,4 @@ public class PersonServiceMongoImpl implements IPersonService {
     }
 
 }
+

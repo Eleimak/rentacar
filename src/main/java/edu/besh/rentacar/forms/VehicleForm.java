@@ -1,6 +1,12 @@
-package edu.besh.rentacar.forms;
+/*
+ * VehicleForm
+ *
+ * Version 1
+ *
+ * Artem Beshevli
+ */
 
-import edu.besh.rentacar.entity.Types;
+package edu.besh.rentacar.forms;
 
 public class VehicleForm {
     private int id;
