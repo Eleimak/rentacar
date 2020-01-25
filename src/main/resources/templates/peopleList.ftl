@@ -12,19 +12,17 @@
     <h3>People List</h3>
 
 
-<#--
-    <div>
+    <div >
         <fieldset>
             <legend>Find  person</legend>
-            <form name="person" action="" method="POST">
-                First name:<@spring.formInput "" "text"/>
+            <form name="search" action="" method="POST">
+                Last name:<@spring.formInput "searchForm.string" "" "text"/>
                 <br>
-
                 <input type="submit" value="Search"/>
             </form>
         </fieldset>
     </div>
--->
+
 
 
     <br>
