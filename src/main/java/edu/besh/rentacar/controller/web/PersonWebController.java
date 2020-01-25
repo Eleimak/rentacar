@@ -36,9 +36,12 @@ public class PersonWebController {
     }
 
     @PostMapping(value = "/list")
-    public String showAll(Model model, @PathVariable(value = "word") String word) {
+    public String showAll(Model model,
+                          @ModelAttribute("searchForm") SearchForm searchForm) {
+        String word = searchForm.getString();
         List<Person> list = personService.search(word);
-
+       // SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         model.addAttribute("people", list);
         return "peopleList";
     }
@@ -47,7 +50,8 @@ public class PersonWebController {
     public String delete(Model model, @PathVariable(value = "id")int id){
         personService.delete(id);
         List<Person> list = personService.getAll();
-
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         model.addAttribute("people", list);
 
         return "peopleList";
@@ -76,6 +80,8 @@ public class PersonWebController {
         }
         Person newPerson = new Person(personForm.getId(), personForm.getFirstName(), personForm.getLastName(), gender);
         personService.create(newPerson);
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         model.addAttribute("people", personService.getAll());
         return "redirect:/web/person/list";
     }
@@ -111,6 +117,8 @@ public class PersonWebController {
         }
         Person newPerson = new Person(personForm.getId(), personForm.getFirstName(), personForm.getLastName(), gender);
         personService.edit(newPerson);
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         model.addAttribute("people", personService.getAll());
         return "redirect:/web/person/list";
     }
