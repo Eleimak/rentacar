@@ -1,3 +1,11 @@
+/*
+ * PersonServiceMongoImpl
+ *
+ * Version 1
+ *
+ * Artem Beshevli
+ */
+
 package edu.besh.rentacar.service.person.impls;
 
 import edu.besh.rentacar.entity.Gender;
@@ -7,11 +15,9 @@ import edu.besh.rentacar.service.person.interfaces.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class PersonServiceMongoImpl implements IPersonService {
@@ -27,8 +33,8 @@ public class PersonServiceMongoImpl implements IPersonService {
                     new Person(4, "Ray", "Charles", Gender.MALE)
             )
     );
-/*
 
+/*
    @PostConstruct
     void init(){
         System.out.println("Saving in database...");
@@ -52,7 +58,6 @@ public class PersonServiceMongoImpl implements IPersonService {
                 .boxed().max(Integer::compareTo).orElse(1) + 1);
 
         List<Person> people = this.getAll();
-
 
         int[] arrayId = new int[people.size()];
 
@@ -103,23 +108,28 @@ public class PersonServiceMongoImpl implements IPersonService {
         return found;
     }
 
-    private int[] bubblesort(int[] numbers)
-    {
+    private int[] bubblesort(int[] numbers) {
+
         int tempVar;
-        for (int i = 0; i < numbers.length; i++)
-        {
-            for(int j = 0; j < numbers.length; j++)
-            {
-                if( j< numbers.length-1 && numbers[i] > numbers[j + 1])
-                {
+
+        for (int i = 0; i < numbers.length; i++) {
+
+            for(int j = 0; j < numbers.length; j++) {
+
+                if( j< numbers.length-1 && numbers[i] > numbers[j + 1]) {
+
                     tempVar = numbers [j + 1];
                     numbers [j + 1]= numbers [i];
                     numbers [i] = tempVar;
                 }
             }
         }
+
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.println(numbers[i]);
+        }
+
        return numbers;
     }
-
 
 }
