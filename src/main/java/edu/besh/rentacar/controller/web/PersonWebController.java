@@ -1,17 +1,22 @@
+/*
+ * PersonWebController
+ *
+ * Version 1
+ *
+ * Artem Beshevli
+ */
+
 package edu.besh.rentacar.controller.web;
 
 import edu.besh.rentacar.entity.Gender;
 import edu.besh.rentacar.entity.Person;
 import edu.besh.rentacar.forms.PersonForm;
 import edu.besh.rentacar.forms.SearchForm;
-import edu.besh.rentacar.service.person.impls.PersonServiceImpl;
 import edu.besh.rentacar.service.person.impls.PersonServiceMongoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.nio.file.Path;
 import java.util.List;
 
 @RequestMapping("/web/person")
@@ -30,11 +35,10 @@ public class PersonWebController {
         return "peopleList";
     }
 
-    @PostMapping("/list")
-    public String showAll(@ModelAttribute("searchForm") SearchForm searchForm
-    , Model model) {
-        String word = searchForm.getString();
+    @PostMapping(value = "/list")
+    public String showAll(Model model, @PathVariable(value = "word") String word) {
         List<Person> list = personService.search(word);
+
         model.addAttribute("people", list);
         return "peopleList";
     }
@@ -43,8 +47,7 @@ public class PersonWebController {
     public String delete(Model model, @PathVariable(value = "id")int id){
         personService.delete(id);
         List<Person> list = personService.getAll();
-        SearchForm searchForm = new SearchForm();
-        model.addAttribute("searchForm", searchForm);
+
         model.addAttribute("people", list);
 
         return "peopleList";
@@ -69,7 +72,6 @@ public class PersonWebController {
         } else if (personForm.getGender().toUpperCase().equals("FEMALE")){
             gender = Gender.FEMALE;
         } else {
-            gender = Gender.MALE;
             System.out.println("Invalid input");
         }
         Person newPerson = new Person(personForm.getId(), personForm.getFirstName(), personForm.getLastName(), gender);

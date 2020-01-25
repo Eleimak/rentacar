@@ -1,8 +1,15 @@
+/*
+ * FakeSet
+ *
+ * Version 1
+ *
+ * Artem Beshevli
+ */
+
 package edu.besh.rentacar.fakedb;
 
 import edu.besh.rentacar.entity.*;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

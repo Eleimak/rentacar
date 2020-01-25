@@ -1,14 +1,20 @@
+/*
+ * CustomerServiceImpl
+ *
+ * Version 1
+ *
+ * Artem Beshevli
+ */
+
 package edu.besh.rentacar.service.customer.impls;
 
 import edu.besh.rentacar.entity.Customer;
-import edu.besh.rentacar.entity.Person;
 import edu.besh.rentacar.fakedb.FakeSet;
 import edu.besh.rentacar.repository.CustomerRepository;
 import edu.besh.rentacar.repository.PersonRepository;
 import edu.besh.rentacar.service.customer.interfaces.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,11 +32,11 @@ public class CustomerServiceImpl implements ICustomerService {
 
    @PostConstruct
     void init(){
-       // Person person = personRepository.findById(1).orElse(null);
-       // Customer customer = new Customer(4, person, "", "", "",null, true);
+        // Person person = personRepository.findById(1).orElse(null);
+        // Customer customer = new Customer(4, person, "", "", "",null, true);
         repository.deleteAll();
         repository.saveAll(fakeSet.getCustomers());
-        //repository.saveAll(fakeSet.getCustomers());
+        // repository.saveAll(fakeSet.getCustomers());
     }
 
     @Override
@@ -40,7 +46,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public Customer get(int id) {
-       // return fakeSet.getCustomers().stream().filter(customer -> customer.getId() == id).findFirst().orElse(null);
+        // return fakeSet.getCustomers().stream().filter(customer -> customer.getId() == id).findFirst().orElse(null);
         return repository.findById(id).orElse(null);
     }
 

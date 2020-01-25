@@ -1,3 +1,11 @@
+/*
+ * Customer
+ *
+ * Version 1
+ *
+ * Artem Beshevli
+ */
+
 package edu.besh.rentacar.entity;
 
 import org.springframework.data.annotation.Id;
@@ -119,5 +127,3 @@ public class Customer {
         return Objects.hash(getId());
     }
 }
-
-/* База - контроллер */

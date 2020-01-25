@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,28 +38,6 @@ public class PersonServiceMongoImpl implements IPersonService {
 
     @Override
     public List<Person> getAll() {
-        return repository.findAll();
-    }
-
-
-    public List<Person> getAllSorted() {
-
-        List<Person> list = repository.findAll();
-
-  /*      Collections.sort(list,new Comparator<Person>() {
-
-
-            @Override
-            public int compare(Person person1, Song song2) {
-                if (song1.equals(song2)) {
-                    return 0;
-                }
-                return song1.mTitle.compareTo(song2.mTitle);
-            }
-        });
-        */
-
-
         return repository.findAll();
     }
 

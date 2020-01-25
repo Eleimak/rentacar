@@ -1,3 +1,11 @@
+/*
+ * Vehicle
+ *
+ * Version 1
+ *
+ * Artem Beshevli
+ */
+
 package edu.besh.rentacar.entity;
 
 import org.springframework.data.annotation.Id;
