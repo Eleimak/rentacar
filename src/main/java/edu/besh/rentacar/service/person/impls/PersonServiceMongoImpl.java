@@ -48,16 +48,19 @@ public class PersonServiceMongoImpl implements IPersonService {
 
     @Override
     public Person create(Person person) {
-        int recentID = repository.findAll().stream().mapToInt(item -> item.getId())
-                .boxed().max(Integer::compareTo).orElse(1);
-        person.setId(recentID+1);
+        person.setId(repository.findAll().stream().mapToInt(item -> item.getId())
+                .boxed().max(Integer::compareTo).orElse(1) + 1);
 
-      //  int recentID = 0;
-        List<Integer> list = repository.findAll().stream().mapToInt(item -> item.getId())
-                .boxed().collect(Collectors.toList());
+        List<Person> people = this.getAll();
 
-        /* List<Integer> sortedList = list.stream().sorted(Integer::compareTo).collect(Collectors.toList());
-        recentID = sortedList.get(sortedList.size()-1); */
+
+        int[] arrayId = new int[people.size()];
+
+        int[] sortedArray = this.bubblesort(arrayId);
+
+        int lastId = sortedArray[sortedArray.length-1];
+
+        int newId = lastId++;
 
         return repository.save(person);
     }
@@ -80,14 +83,47 @@ public class PersonServiceMongoImpl implements IPersonService {
 
         List<Person> persons = this.getAll();
 
-        for (Person person : persons) {
+        for (int i = 0; i < persons.size(); i++) {
+
+            if (persons.get(i).getLastName().contains(word)){
+
+                found.add(persons.get(i));
+            }
+
+        }
+
+/*        for (Person person : persons) {
            if (person.getLastName().contains(word)){
 
                found.add(person);
            }
         }
-        return found;
+        */
 
+        return found;
     }
+
+    private int[] bubblesort(int[] numbers)
+    {
+        int tempVar;
+        for (int i = 0; i < numbers.length; i++)
+        {
+            for(int j = 0; j < numbers.length; j++)
+            {
+                if( j< numbers.length-1 && numbers[i] > numbers[j + 1])
+                {
+                    tempVar = numbers [j + 1];
+                    numbers [j + 1]= numbers [i];
+                    numbers [i] = tempVar;
+                }
+            }
+        }
+        for (int i = 0; i < numbers.length; i++)
+        {
+            System.out.println(numbers[i]);
+        }
+       return numbers;
+    }
+
 
 }
