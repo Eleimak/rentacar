@@ -40,11 +40,22 @@ public class PersonWebController {
                           @ModelAttribute("searchForm") SearchForm searchForm) {
         String word = searchForm.getString();
         List<Person> list = personService.search(word);
-       // SearchForm searchForm = new SearchForm();
         model.addAttribute("searchForm", searchForm);
         model.addAttribute("people", list);
         return "peopleList";
     }
+
+    @RequestMapping(value = "/list/sorted", method = RequestMethod.GET)
+    public String showSorted(Model model) {
+        List<Person> people = personService.getAll();
+        List<Person> sorted = personService.sortByName(people);
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("people", sorted);
+        return "peopleList";
+    }
+
+
 
     @RequestMapping("/delete/{id}")
     public String delete(Model model, @PathVariable(value = "id")int id){
@@ -105,8 +116,6 @@ public class PersonWebController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String editPerson(Model model,
                             @ModelAttribute("personForm") PersonForm personForm){
-
-        // Group group = groupService.get(personForm.getGroup());
         Gender gender = null;
         if (personForm.getGender().toUpperCase().equals("MALE")){
             gender = Gender.MALE;
@@ -122,5 +131,7 @@ public class PersonWebController {
         model.addAttribute("people", personService.getAll());
         return "redirect:/web/person/list";
     }
+
+
 
 }
