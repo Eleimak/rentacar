@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -121,5 +119,17 @@ public class PersonServiceMongoImpl implements IPersonService {
        return numbers;
     }
 
+    public List<Person> sortByName(List<Person> people){
+
+        Collections.sort(people, new PersonNameComparator());
+
+        return people;
+    }
+
+    private class PersonNameComparator implements Comparator<Person> {
+        public int compare(Person p1, Person p2) {
+            return p1.getLastName().compareTo(p2.getLastName());
+        }
+    }
 
 }
