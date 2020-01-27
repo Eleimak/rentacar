@@ -55,6 +55,16 @@ public class PersonWebController {
         return "peopleList";
     }
 
+    @RequestMapping(value = "/list/sorted", method = RequestMethod.POST)
+    public String searchSorted(Model model,
+                               @ModelAttribute("searchForm") SearchForm searchForm) {
+        String word = searchForm.getString();
+        List<Person> list = personService.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("people", list);
+        return "peopleList";
+    }
+
 
 
     @RequestMapping("/delete/{id}")
