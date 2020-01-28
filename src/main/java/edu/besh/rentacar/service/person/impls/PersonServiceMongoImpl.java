@@ -7,9 +7,7 @@ import edu.besh.rentacar.service.person.interfaces.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class PersonServiceMongoImpl implements IPersonService {
@@ -26,7 +24,6 @@ public class PersonServiceMongoImpl implements IPersonService {
             )
     );
 /*
-
    @PostConstruct
     void init(){
         System.out.println("Saving in database...");
@@ -50,7 +47,6 @@ public class PersonServiceMongoImpl implements IPersonService {
                 .boxed().max(Integer::compareTo).orElse(1) + 1);
 
         List<Person> people = this.getAll();
-
 
         int[] arrayId = new int[people.size()];
 
