@@ -6,6 +6,17 @@
     <title>Add Customer</title>
     <link rel="stylesheet"
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
+    <style>
+
+        body {
+            background-image: url('/img/backgroundPicture.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+
+
 </head>
 <body>
 

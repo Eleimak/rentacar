@@ -1,5 +1,8 @@
 body{
  background-image: url("../img/backgroundPicture.jpeg");
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
 }
 header{
  margin-top: 200px;
