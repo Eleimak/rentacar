@@ -86,3 +86,11 @@ header{
 .dws-menu li:hover > ul{
  display: block;
 }
+
+.container-fluid{
+ background-image: url('/img/logo.png');
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-size: 110px 90px;
+ background-position: center top;
+}

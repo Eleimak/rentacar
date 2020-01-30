@@ -26,7 +26,7 @@
     <h3>People List</h3>
 
 
-    <div >
+    <div>
         <fieldset>
             <legend>Find  person</legend>
             <form name="search" action="" method="POST">
@@ -57,7 +57,7 @@
             <td>${person.firstName}</td>
             <td>${person.lastName}</td>
             <td>${person.gender}</td>
-            <td><a href="/web/person/delete/${person.id}" type="button" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a></td>
+            <td><a href="/web/person/delete/${person.id}" type="button" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete ${person.firstName} ${person.lastName}?');"><i class="fa fa-trash"></i></a></td>
             <td><a href="/web/person/edit/${person.id}" type="button" class="btn btn-light" ><i class="fa fa-edit"></i>Edit</a></td>
         </tr>
     </#list>
