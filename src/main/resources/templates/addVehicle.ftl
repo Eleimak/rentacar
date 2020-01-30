@@ -8,7 +8,7 @@
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
     <style>
         body {
-            background-image: url('img/backgroundPicture.jpg');
+            background-image: url('img/logo.png');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
