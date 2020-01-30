@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet"
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
 
         body {
@@ -36,6 +37,7 @@
     </div>
 
 
+    <a href="/web/person/add" type="button" class="btn btn-light" style="float:right; margin-top:5px;"><i class="fa fa-plus-square-o"></i>Add new person</a>
 
     <br>
     <div>
@@ -43,7 +45,7 @@
                 <tr class="thead-dark">
                     <th scope="col">ID</th>
                     <th scope="col">First Name</th>
-                    <th scope="col">Last Name  ___ <a href="/web/person/list/sorted"   Type = "button">Click to sort</button></th>
+                    <th scope="col">Last Name   <a href="/web/person/list/sorted" type="button" class="btn btn-outline-light"><i class="fa fa-sort-alpha-asc"></i></a></th>
                     <th scope="col">Gender</th>
                     <th scope="col">Delete</th>
                     <th scope="col">Edit</th>
@@ -54,17 +56,14 @@
             <td>${person.firstName}</td>
             <td>${person.lastName}</td>
             <td>${person.gender}</td>
-            <td><a href="/web/person/delete/${person.id}" Type="Button" class="btn btn-danger" >Delete</a></td><!-- навесить route на кнопку -->
-            <!--Поставить фотку урны вместо конпки удаления-->
-            <td><a href="/web/person/edit/${person.id}" Type="Button" class="btn btn-danger" >Edit</a></td>
+            <td><a href="/web/person/delete/${person.id}" type="button" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a></td>
+            <td><a href="/web/person/edit/${person.id}" type="button" class="btn btn-light" ><i class="fa fa-edit"></i>Edit</a></td>
         </tr>
     </#list>
 
     </table>
     </form>
 </div>
-
-    <a href="/web/person/add">Add new person</a>
 
 </div>
 </body>
