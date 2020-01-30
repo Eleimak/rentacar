@@ -8,8 +8,8 @@
     <link rel="stylesheet"
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
 
+    <style>
         body {
             background-image: url('/img/logo.png');
             background-repeat: no-repeat;
@@ -18,6 +18,7 @@
             background-position: center top;
         }
     </style>
+
 </head>
 <body>
 <div class="container-fluid">
@@ -62,7 +63,6 @@
     </#list>
 
     </table>
-    </form>
 </div>
 
 </div>

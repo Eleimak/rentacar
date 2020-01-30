@@ -4,18 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Person</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet"
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         body {
-            background-image: url('img/backgroundPicture.jpg');
+            background-image: url('img/logo.png');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
         }
     </style>
+
 </head>
 <body>
+
 
 <div>
     <fieldset>
