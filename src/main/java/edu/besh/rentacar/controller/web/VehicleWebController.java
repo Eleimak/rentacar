@@ -79,6 +79,8 @@ public class VehicleWebController {
                 break;
             case "SEDAN": type = Types.SEDAN;
                 break;
+                case "MPV": type = Types.MPV;
+                break;
             case "ELECTROMOBILE": type = Types.ELECTROMOBILE;
                 break;
              case "COUPE": type = Types.COUPE;
@@ -96,12 +98,13 @@ public class VehicleWebController {
                 ,vehicleForm.getCost(), vehicleForm.getLicensePlate(), type, vehicleForm.getYearOfIssue()
                 , vehicleForm.getRentalFee(), vehicleForm.isMaintenance(), vehicleForm.isTaken());
         vehicleService.create(newVehicle);
-        model.addAttribute("people", vehicleService.getAll());
+        model.addAttribute("carset", vehicleService.getAll());
         return "redirect:/web/vehicle/list";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public String editVehicle(Model model, @PathVariable(value = "id") int id){
+    public String editVehicle(Model model,
+                              @PathVariable(value = "id") int id){
         VehicleForm vehicleForm = new VehicleForm();
         Vehicle vehicle = vehicleService.get(id);
 
@@ -122,7 +125,7 @@ public class VehicleWebController {
         return "addVehicle";
     }
 
-    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String editVehicle(Model model,
                              @ModelAttribute("vehicleForm") VehicleForm vehicleForm){
 
@@ -140,6 +143,8 @@ public class VehicleWebController {
                 break;
             case "ELECTROMOBILE": type = Types.ELECTROMOBILE;
                 break;
+            case "MPV": type = Types.MPV;
+                break;
             case "COUPE": type = Types.COUPE;
                 break;
             case "CONVERTIBLE": type = Types.CONVERTIBLE;
@@ -154,8 +159,10 @@ public class VehicleWebController {
                 ,vehicleForm.getCost(), vehicleForm.getLicensePlate(), type, vehicleForm.getYearOfIssue()
                 , vehicleForm.getRentalFee(), vehicleForm.isMaintenance(), vehicleForm.isTaken());
         vehicleService.edit(newVehicle);
-        model.addAttribute("vehicles", vehicleService.getAll());
+        model.addAttribute("carset", vehicleService.getAll());
         return "redirect:/web/vehicle/list";
     }
+
+
 
 }
