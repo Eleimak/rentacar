@@ -23,6 +23,18 @@
     <br>
     <h3>Vehicles List</h3>
     <br>
+
+    <div>
+        <fieldset>
+            <legend>Find  person</legend>
+            <form name="search" action="" method="POST">
+                Last name:<@spring.formInput "searchForm.string" "" "text"/>
+                <br>
+                <input type="submit" value="Search"/>
+            </form>
+        </fieldset>
+    </div>
+
     <div>
         <table class="table table-sm table-striped table-bordered">
             <tr class="thead-dark">
@@ -33,7 +45,7 @@
                 <th scope="col">License Plate Number</th>
                 <th scope="col">Type</th>
                 <th scope="col">Year of Issue</th>
-                <th scope="col">Rental Price</th>
+                <th scope="col">Rental Price <a href="/web/vehicle/list/sorted" type="button" class="btn btn-outline-light"</th>
                 <th scope="col">Is being repaired</th>
                 <th scope="col">Taken</th>
                 <th scope="col">Delete</th>

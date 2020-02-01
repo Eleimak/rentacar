@@ -25,6 +25,7 @@ public class Vehicle {
     private int rentalFee;
     private boolean maintenance;
     private boolean taken;
+    private Integer hourBack;
 
     public Vehicle() {
     }
@@ -40,6 +41,19 @@ public class Vehicle {
         this.rentalFee = rentalFee;
         this.maintenance = maintenance;
         this.taken = taken;
+    }
+
+    public Vehicle(String brand, String model, double cost, String licensePlate, Types type, int yearOfIssue, int rentalFee, boolean maintenance, boolean taken, Integer hourBack) {
+        this.brand = brand;
+        this.model = model;
+        this.cost = cost;
+        this.licensePlate = licensePlate;
+        this.type = type;
+        this.yearOfIssue = yearOfIssue;
+        this.rentalFee = rentalFee;
+        this.maintenance = maintenance;
+        this.taken = taken;
+        this.hourBack = hourBack;
     }
 
     public Vehicle(int id, String brand, String model, double cost, String licensePlate, Types type, int yearOfIssue,
