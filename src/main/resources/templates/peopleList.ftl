@@ -37,6 +37,9 @@
         </fieldset>
     </div>
 
+    <br>
+
+    <a href="http://localhost:8080/" type="button" class="btn btn-light" style="float:left; margin-top:5px;"><i class="fa fa-chevron-circle-left"></i>Back to home page</a>
 
     <a href="/web/person/add" type="button" class="btn btn-light" style="float:right; margin-top:5px;"><i class="fa fa-plus-square-o"></i>Add new person</a>
 
@@ -46,7 +49,9 @@
                 <tr class="thead-dark">
                     <th scope="col">ID</th>
                     <th scope="col">First Name</th>
-                    <th scope="col">Last Name   <a href="/web/person/list/sorted" type="button" class="btn btn-outline-light"><i class="fa fa-sort-alpha-asc"></i></a></th>
+                    <th scope="col">Last Name   <a href="/web/person/list/sorted" type="button" class="btn btn-outline-light">
+                            <i class="fa fa-sort-alpha-asc"></i></a> <a href="http://localhost:8080/web/person/list" type="button" class="btn btn-outline-light">
+                            <i class="fa fa-undo"></i>Undo sort</a></th>
                     <th scope="col">Gender</th>
                     <th scope="col">Delete</th>
                     <th scope="col">Edit</th>
