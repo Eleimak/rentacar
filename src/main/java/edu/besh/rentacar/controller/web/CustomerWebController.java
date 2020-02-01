@@ -12,6 +12,7 @@ import edu.besh.rentacar.entity.Customer;
 import edu.besh.rentacar.entity.Person;
 import edu.besh.rentacar.entity.Vehicle;
 import edu.besh.rentacar.forms.CustomerForm;
+import edu.besh.rentacar.forms.SearchForm;
 import edu.besh.rentacar.service.customer.impls.CustomerServiceImpl;
 import edu.besh.rentacar.service.person.impls.PersonServiceMongoImpl;
 import edu.besh.rentacar.service.vehicle.impls.VehicleServiceImpl;
@@ -38,22 +39,33 @@ public class CustomerWebController {
     @Autowired
     VehicleServiceImpl vehicleService;
 
-        @RequestMapping("/list")
+        @RequestMapping(value = "/list", method = RequestMethod.GET)
         public String showAll(Model model) {
             List<Customer> list = customerService.getAll();
-
+            SearchForm searchForm = new SearchForm();
+            model.addAttribute("searchForm", searchForm);
             model.addAttribute("customers", list);
             return "customerList";
         }
+    @PostMapping(value = "/list")
+    public String search(Model model,
+                         @ModelAttribute("searchForm") SearchForm searchForm) {
+        String word = searchForm.getString();
+        List<Customer> list = customerService.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("customers", list);
+        return "customerList";
+    }
 
         @RequestMapping("/delete/{id}")
         public String delete(Model model, @PathVariable(value = "id")int id){
             customerService.delete(id);
             List<Customer> list = customerService.getAll();
-
+ /*           SearchForm searchForm = new SearchForm();
+            model.addAttribute("searchForm", searchForm);
             model.addAttribute("customers", list);
-
-            return "customersList";
+            */
+            return "redirect:/web/customer/list";
         }
 
         @RequestMapping(value = "/add", method = RequestMethod.GET)

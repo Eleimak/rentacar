@@ -78,7 +78,10 @@ public class CustomerServiceImpl implements ICustomerService {
         repository.deleteById(id);
     }
 
-    public List<Customer> search(String name) {
-        return null;
+    public List<Customer> search(String word) {
+        return this.getAll().stream()
+                .filter(customer -> customer.getClient()
+                        .getLastName().toLowerCase().contains(word.toLowerCase()))
+                .collect(Collectors.toList());
     }
 }

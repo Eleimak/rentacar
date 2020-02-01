@@ -48,6 +48,7 @@
                 <th scope="col">Rental Price <a href="/web/vehicle/list/sorted" type="button" class="btn btn-outline-light"</th>
                 <th scope="col">Is being repaired</th>
                 <th scope="col">Taken</th>
+                <th scope="col">Minutes left</th>
                 <th scope="col">Delete</th>
                 <th scope="col">Edit</th>
             </tr>
@@ -65,6 +66,12 @@
                 <#else>
                     <#assign rent = "no">
                 </#if>
+<#--
+                <#assign minutes = 0>
+                <#if car.hourBack >
+                    <#assign minutes = car.hourBack>
+                </#if>
+-->
 
                 <tr>
                     <td>${car.id}</td>
@@ -77,7 +84,7 @@
                     <td>${car.rentalFee}</td>
                     <td>${repair}</td>
                     <td>${rent}</td>
-
+                    <td>${car.hourBack}</td>
                     <td><a href="/web/vehicle/delete/${car.id}" Type="Button" class="btn btn-danger" >Delete</a></td><!-- навесить route на кнопку -->
                     <!--Поставить фотку урны вместо конпки удаления-->
                     <td><a href="/web/vehicle/edit/${car.id}" Type="Button" class="btn btn-danger" >Edit</a></td>

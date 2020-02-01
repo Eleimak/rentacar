@@ -30,6 +30,28 @@ public class Vehicle {
     public Vehicle() {
     }
 
+    public Vehicle(int id, String brand, String model, double cost, String licensePlate, Types type, int yearOfIssue, int rentalFee, boolean maintenance, boolean taken, Integer hourBack) {
+        this.id = id;
+        this.brand = brand;
+        this.model = model;
+        this.cost = cost;
+        this.licensePlate = licensePlate;
+        this.type = type;
+        this.yearOfIssue = yearOfIssue;
+        this.rentalFee = rentalFee;
+        this.maintenance = maintenance;
+        this.taken = taken;
+        this.hourBack = hourBack;
+    }
+
+    public Integer getHourBack() {
+        return hourBack;
+    }
+
+    public void setHourBack(Integer hourBack) {
+        this.hourBack = hourBack;
+    }
+
     public Vehicle(String brand, String model, double cost, String licensePlate, Types type, int yearOfIssue,
                    int rentalFee, boolean maintenance, boolean taken) {
         this.brand = brand;

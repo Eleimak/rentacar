@@ -24,6 +24,16 @@
     <h3>Customers List</h3>
     <br>
     <div>
+        <fieldset>
+            <legend>Find  customer</legend>
+            <form name="search" action="" method="POST">
+                Customer name:<@spring.formInput "searchForm.string" "" "text"/>
+                <br>
+                <input type="submit" value="Search"/>
+            </form>
+        </fieldset>
+    </div>
+    <div>
         <table class="table table-sm table-striped table-bordered">
             <tr class="thead-dark">
                 <th scope="col">ID</th>
@@ -39,7 +49,7 @@
             <#list customers as customer>
                 <tr>
                     <td>${customer.id}</td>
-                    <td>${customer.client.firstName}</td>
+                    <td>${customer.client.firstName + " " + customer.client.lastName} </td>
                     <td>${customer.address}</td>
                     <td>${customer.phone}</td>
                     <td>${customer.email}</td>

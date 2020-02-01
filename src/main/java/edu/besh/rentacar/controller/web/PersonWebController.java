@@ -74,7 +74,6 @@ public class PersonWebController {
         SearchForm searchForm = new SearchForm();
         model.addAttribute("searchForm", searchForm);
         model.addAttribute("people", list);
-
         return "peopleList";
     }
 

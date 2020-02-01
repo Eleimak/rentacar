@@ -18,6 +18,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,6 +34,17 @@ public class VehicleWebController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     String getAll(Model model){
         List<Vehicle> list = vehicleService.getAll();
+        list.stream().forEach(
+                car -> {
+                    if(car.getHourBack()!= 0){
+                        LocalDateTime carBackTime = LocalDateTime.now()
+                                .withHour(car.getHourBack());
+                        int minutes = (int) ChronoUnit.MINUTES.between(LocalDateTime.now(),
+                                carBackTime);
+                        car.setHourBack(minutes);
+                    } else {car.setHourBack(0);}
+                }
+        );
         model.addAttribute("carset", list);
         SearchForm searchForm = new SearchForm();
         model.addAttribute("searchForm", searchForm);

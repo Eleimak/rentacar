@@ -32,11 +32,11 @@ public class FakeSet {
     private List<Vehicle> vehicles = new ArrayList<>(
             Arrays.asList(
                     new Vehicle(1, "Mercedes-Benz", "S-Class", 140000.0, "CE7777BI", Types.SEDAN
-                    , 2019, 650, false, false)
+                    , 2019, 650, false, true,23)
                     , new Vehicle(2, "BMW", "X5", 90000.0, "AA8787AI", Types.CROSSOVER
-                    , 2018, 500, false, false)
+                    , 2018, 500, false, false,0)
                     , new Vehicle(3, "Tesla", "X", 132000.0, "AT9293AI", Types.ELECTROMOBILE
-                    , 2019, 550, true, false)
+                    , 2019, 550, true, false,0)
 
             )
     );
