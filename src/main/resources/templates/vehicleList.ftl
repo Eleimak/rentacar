@@ -26,9 +26,9 @@
 
     <div>
         <fieldset>
-            <legend>Find  person</legend>
+            <legend>Find  brand</legend>
             <form name="search" action="" method="POST">
-                Last name:<@spring.formInput "searchForm.string" "" "text"/>
+                Brand name:<@spring.formInput "searchForm.string" "" "text"/>
                 <br>
                 <input type="submit" value="Search"/>
             </form>
