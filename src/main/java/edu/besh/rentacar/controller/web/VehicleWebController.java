@@ -10,12 +10,17 @@ package edu.besh.rentacar.controller.web;
 
 import edu.besh.rentacar.entity.Types;
 import edu.besh.rentacar.entity.Vehicle;
+import edu.besh.rentacar.forms.SearchForm;
 import edu.besh.rentacar.forms.VehicleForm;
 import edu.besh.rentacar.service.vehicle.impls.VehicleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,14 +31,61 @@ public class VehicleWebController {
     @Autowired
     VehicleServiceImpl vehicleService;
 
-    @RequestMapping("/list")
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     String getAll(Model model){
         List<Vehicle> list = vehicleService.getAll();
+        list.stream().forEach(
+                car -> {
+                    if(car.getHourBack()!= 0){
+                        LocalDateTime carBackTime = LocalDateTime.now()
+                                .withHour(car.getHourBack())
+                                .withMinute(0);
 
+                        int minutes = (int) ChronoUnit.MINUTES
+                                .between(LocalDateTime.now(), carBackTime);
+                        car.setHourBack(minutes);
+                    } else {car.setHourBack(0);}
+                }
+        );
         model.addAttribute("carset", list);
-
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         return "vehicleList";
     }
+
+    @PostMapping(value = "/list")
+    public String search(Model model,
+                         @ModelAttribute("searchForm") SearchForm searchForm) {
+        List<Vehicle> list = new ArrayList<>();
+        String letters = searchForm.getString();
+
+        if (letters == null || letters == "")
+        { list = vehicleService.getAll();
+            System.out.println("empty");
+        }
+        else{
+          list = vehicleService.search(letters);
+        }
+
+        model.addAttribute("carset", list);
+        model.addAttribute("searchForm", searchForm);
+        return "vehicleList";
+    }
+
+
+
+    @RequestMapping(value = "/list/sorted", method = RequestMethod.GET)
+    String sort(Model model){
+        List<Vehicle> list = vehicleService.sortByBrand();
+        model.addAttribute("carset", list);
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
+        return "vehicleList";
+    }
+
+
+
+
 
     @RequestMapping("/delete/{id}")
     public String delete(Model model, @PathVariable(value = "id")int id){
@@ -41,7 +93,8 @@ public class VehicleWebController {
         List<Vehicle> list = vehicleService.getAll();
 
         model.addAttribute("carset", list);
-
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         return "vehicleList";
     }
 
@@ -96,9 +149,11 @@ public class VehicleWebController {
 
         Vehicle newVehicle = new Vehicle(vehicleForm.getId(), vehicleForm.getBrand(), vehicleForm.getModel()
                 ,vehicleForm.getCost(), vehicleForm.getLicensePlate(), type, vehicleForm.getYearOfIssue()
-                , vehicleForm.getRentalFee(), vehicleForm.isMaintenance(), vehicleForm.isTaken());
+                , vehicleForm.getRentalFee(), vehicleForm.isMaintenance(), vehicleForm.isTaken(),0);
         vehicleService.create(newVehicle);
         model.addAttribute("carset", vehicleService.getAll());
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         return "redirect:/web/vehicle/list";
     }
 
@@ -160,6 +215,8 @@ public class VehicleWebController {
                 , vehicleForm.getRentalFee(), vehicleForm.isMaintenance(), vehicleForm.isTaken());
         vehicleService.edit(newVehicle);
         model.addAttribute("carset", vehicleService.getAll());
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         return "redirect:/web/vehicle/list";
     }
 

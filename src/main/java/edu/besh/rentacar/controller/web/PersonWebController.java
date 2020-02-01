@@ -26,7 +26,7 @@ public class PersonWebController {
     @Autowired
     PersonServiceMongoImpl personService;
 
-    @RequestMapping("/list")
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String showAll(Model model) {
         List<Person> list = personService.getAll();
         SearchForm searchForm = new SearchForm();
@@ -36,7 +36,7 @@ public class PersonWebController {
     }
 
     @PostMapping(value = "/list")
-    public String showAll(Model model,
+    public String search(Model model,
                           @ModelAttribute("searchForm") SearchForm searchForm) {
         String word = searchForm.getString();
         List<Person> list = personService.search(word);
@@ -74,7 +74,6 @@ public class PersonWebController {
         SearchForm searchForm = new SearchForm();
         model.addAttribute("searchForm", searchForm);
         model.addAttribute("people", list);
-
         return "peopleList";
     }
 

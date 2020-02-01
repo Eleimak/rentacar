@@ -15,6 +15,7 @@ import edu.besh.rentacar.service.vehicle.interfaces.IVehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,6 +30,7 @@ public class VehicleServiceImpl implements IVehicleService {
 
     @PostConstruct
     void init(){
+      //  repository.deleteAll();
         repository.saveAll(fakeSet.getVehicles());
     }
 
@@ -50,16 +52,26 @@ public class VehicleServiceImpl implements IVehicleService {
 
         List<Integer> list = repository.findAll().stream().mapToInt(item -> item.getId())
                 .boxed().collect(Collectors.toList());
+        if (vehicle.getHourBack() == null) vehicle.setHourBack(0);
         return repository.save(vehicle);
     }
 
     @Override
-    public Vehicle edit(Vehicle vehicle) { return repository.save(vehicle); }
+    public Vehicle edit(Vehicle vehicle) {
+        if(vehicle.getHourBack() == null) vehicle.setHourBack(0);
+        return repository.save(vehicle); }
 
     @Override
     public void delete(int id) {repository.deleteById(id);}
 
-    public List<Vehicle> search(String model) {
-        return null;
+    public List<Vehicle> sortByBrand(){
+        return this.getAll().stream().sorted(Comparator.comparing(Vehicle::getRentalFee))
+                .collect(Collectors.toList());
+    }
+
+    public List<Vehicle> search(String letters) {
+        return this.getAll().stream()
+                .filter(car-> car.getBrand().toLowerCase().contains(letters.toLowerCase()))
+                .collect(Collectors.toList());
     }
 }
