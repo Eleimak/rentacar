@@ -52,11 +52,14 @@ public class VehicleServiceImpl implements IVehicleService {
 
         List<Integer> list = repository.findAll().stream().mapToInt(item -> item.getId())
                 .boxed().collect(Collectors.toList());
+        if (vehicle.getHourBack() == null) vehicle.setHourBack(0);
         return repository.save(vehicle);
     }
 
     @Override
-    public Vehicle edit(Vehicle vehicle) { return repository.save(vehicle); }
+    public Vehicle edit(Vehicle vehicle) {
+        if(vehicle.getHourBack() == null) vehicle.setHourBack(0);
+        return repository.save(vehicle); }
 
     @Override
     public void delete(int id) {repository.deleteById(id);}

@@ -38,9 +38,11 @@ public class VehicleWebController {
                 car -> {
                     if(car.getHourBack()!= 0){
                         LocalDateTime carBackTime = LocalDateTime.now()
-                                .withHour(car.getHourBack());
-                        int minutes = (int) ChronoUnit.MINUTES.between(LocalDateTime.now(),
-                                carBackTime);
+                                .withHour(car.getHourBack())
+                                .withMinute(0);
+
+                        int minutes = (int) ChronoUnit.MINUTES
+                                .between(LocalDateTime.now(), carBackTime);
                         car.setHourBack(minutes);
                     } else {car.setHourBack(0);}
                 }
@@ -147,7 +149,7 @@ public class VehicleWebController {
 
         Vehicle newVehicle = new Vehicle(vehicleForm.getId(), vehicleForm.getBrand(), vehicleForm.getModel()
                 ,vehicleForm.getCost(), vehicleForm.getLicensePlate(), type, vehicleForm.getYearOfIssue()
-                , vehicleForm.getRentalFee(), vehicleForm.isMaintenance(), vehicleForm.isTaken());
+                , vehicleForm.getRentalFee(), vehicleForm.isMaintenance(), vehicleForm.isTaken(),0);
         vehicleService.create(newVehicle);
         model.addAttribute("carset", vehicleService.getAll());
         SearchForm searchForm = new SearchForm();
