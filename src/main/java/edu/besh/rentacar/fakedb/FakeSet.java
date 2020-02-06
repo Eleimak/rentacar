@@ -50,7 +50,7 @@ public class FakeSet {
             Arrays.asList(
                     new Customer(1,  new Person(7, "John", "Doe", Gender.MALE), "вулиця Михайла Драгомирова, 18, Київ, 01103", "+380973342143", "ivan_ivanov@gmail.com",vehicles.get(0),false)
                     , new Customer(2, people.get(1), "Дніпровська набережна, Київ, 02081", "+380501325437", "lev_tolstoy@gmail.com", vehicles.get(1),false)
-                    , new Customer(3, people.get(2),"вулиця Антоновича, 44, Київ, 03186", "+380973213284", "mike_tyson@gmail.com", vehicles.get(2),false)
+                    , new Customer(3, people.get(2),"вулиця Антоновича, 44, Київ, 03186", "+380973213284", "award_tyson@gmail.com", vehicles.get(2),false)
             )
     );
 

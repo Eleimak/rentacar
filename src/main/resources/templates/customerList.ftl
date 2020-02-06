@@ -40,7 +40,7 @@
                 <th scope="col">Client</th>
                 <th scope="col">Address</th>
                 <th scope="col">Phone</th>
-                <th scope="col">E-Mail</th>
+                <th scope="col">E-Mail<a href="/web/customer/list/sorted" type="button" class="btn btn-outline-light">Sort</a></th>
                 <th scope="col">Car</th>
                 <th scope="col">Has Taken A Car</th>
                 <th scope="col">Delete</th>
