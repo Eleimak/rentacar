@@ -45,7 +45,7 @@
                 <th scope="col">License Plate Number</th>
                 <th scope="col">Type</th>
                 <th scope="col">Year of Issue</th>
-                <th scope="col">Rental Price <a href="/web/vehicle/list/sorted" type="button" class="btn btn-outline-light"</th>
+                <th scope="col">Rental Price <a href="/web/vehicle/list/sorted" type="button" class="btn btn-outline-light">Sort</a></th>
                 <th scope="col">Is being repaired</th>
                 <th scope="col">Taken</th>
                 <th scope="col">Minutes left</th>

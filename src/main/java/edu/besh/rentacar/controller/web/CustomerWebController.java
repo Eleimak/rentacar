@@ -57,6 +57,21 @@ public class CustomerWebController {
         return "customerList";
     }
 
+
+
+    @RequestMapping(value = "/list/sorted", method = RequestMethod.GET)
+    String sort(Model model){
+        List<Customer> list = customerService.sortByEmail();
+        model.addAttribute("customers", list);
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
+        return "customerList";
+    }
+
+
+
+
+
         @RequestMapping("/delete/{id}")
         public String delete(Model model, @PathVariable(value = "id")int id){
             customerService.delete(id);

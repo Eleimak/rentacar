@@ -16,6 +16,7 @@ import edu.besh.rentacar.service.customer.interfaces.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -83,5 +84,10 @@ public class CustomerServiceImpl implements ICustomerService {
                 .filter(customer -> customer.getClient()
                         .getLastName().toLowerCase().contains(word.toLowerCase()))
                 .collect(Collectors.toList());
+    }
+
+    public List<Customer> sortByEmail() {
+       return this.getAll().stream().sorted(Comparator.comparing(Customer::getEmail))
+               .collect(Collectors.toList());
     }
 }
