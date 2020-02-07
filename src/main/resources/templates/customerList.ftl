@@ -77,8 +77,6 @@
         </form>
     </div>
 
-    <a href="/web/customer/add">Add new customer</a>
-
 </div>
 </body>
 </html>
