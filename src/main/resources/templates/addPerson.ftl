@@ -20,19 +20,20 @@
         }
 
         input[type=submit] {
-            display: inline-block;
-            border: none;
-            padding: .5rem;
-            margin: 0;
-            color: white;
-            font-family: sans-serif;
-            font-size: 1rem;
-            line-height: 1;
+            padding: 5px 20px 9px !important;
+            font-size: 13px !important;
+            background-color: whitesmoke;
+            font-weight: bold;
+            text-shadow: 1px 1px #eef3eb;
+            color: #000000;
+            border-radius: 100px;
+            -moz-border-radius: 100px;
+            -webkit-border-radius: 100px;
+            border: 1px solid #eef3eb;
             cursor: pointer;
-            text-align: center;
-            transition: background 250ms ease-in-out, transform 150ms ease;
-            -webkit-appearance: none;
-            -moz-appearance: none;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5) inset;
+            -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5) inset;
+            -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5) inset;
         }
 
     </style>

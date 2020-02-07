@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet"
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
 
         body {
@@ -35,6 +37,14 @@
         </fieldset>
     </div>
 
+    <br>
+
+    <a href="http://localhost:8080/" type="button" class="btn btn-light" style="float:left; margin-top:5px;"><i class="fa fa-chevron-circle-left"></i>Back to home page</a>
+
+    <a href="/web/vehicle/add" type="button" class="btn btn-light" style="float:right; margin-top:5px;"><i class="fa fa-plus-square-o"></i>Add new car</a>
+
+    <br>
+
     <div>
         <table class="table table-sm table-striped table-bordered">
             <tr class="thead-dark">
@@ -46,7 +56,9 @@
                 <th scope="col">License Plate Number</th>
                 <th scope="col">Type</th>
                 <th scope="col">Year of Issue</th>
-                <th scope="col">Rental Price <a href="/web/vehicle/list/sorted" type="button" class="btn btn-outline-light">Sort</a></th>
+                <th scope="col">Rental Price <a href="/web/vehicle/list/sorted" type="button" class="btn btn-outline-light">
+                        <i class="fa fa-sort-numeric-asc"></i></a> <br> <a href="http://localhost:8080/web/vehicle/list" type="button" class="btn btn-outline-light">
+                        <i class="fa fa-undo"></i>Undo sort</a></th>
                 <th scope="col">Is being repaired</th>
                 <th scope="col">Taken</th>
                 <th scope="col">Minutes left</th>
@@ -89,16 +101,14 @@
                     <td>${repair}</td>
                     <td>${rent}</td>
                     <td>${car.hourBack}</td>
-                    <td><a href="/web/vehicle/delete/${car.id}" Type="Button" class="btn btn-danger" >Delete</a></td><!-- навесить route на кнопку -->
-                    <td><a href="/web/vehicle/edit/${car.id}" Type="Button" class="btn btn-danger" >Edit</a></td>
+                    <td><a href="/web/vehicle/delete/${car.id}" type="button" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete ${car.brand} ${car.model} with the license plate: ${car.licensePlate}?');"><i class="fa fa-trash"></i></a></td>
+                    <td><a href="/web/vehicle/edit/${car.id}" type="button" class="btn btn-light" ><i class="fa fa-edit"></i>Edit</a></td>
                 </tr>
             </#list>
 
         </table>
         </form>
     </div>
-
-    <a href="/web/vehicle/add">Add new car</a>
 
 </div>
 </body>

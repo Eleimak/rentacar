@@ -19,14 +19,21 @@
             background-position: center top;
         }
 
-        input[type=submit]{
-            background-color: #f1fff5;
-            border: rgba(0,0,0,0.44);
-            color: white;
-            padding: 16px 32px;
-            text-decoration: none;
-            margin: 4px 2px;
+        input[type=submit] {
+            padding: 5px 20px 9px !important;
+            font-size: 13px !important;
+            background-color: whitesmoke;
+            font-weight: bold;
+            text-shadow: 1px 1px #eef3eb;
+            color: #000000;
+            border-radius: 100px;
+            -moz-border-radius: 100px;
+            -webkit-border-radius: 100px;
+            border: 1px solid #eef3eb;
             cursor: pointer;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5) inset;
+            -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5) inset;
+            -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5) inset;
         }
     </style>
 
