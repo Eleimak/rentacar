@@ -45,6 +45,7 @@ public class PersonServiceMongoImpl implements IPersonService {
     public Person create(Person person) {
         person.setId(repository.findAll().stream().mapToInt(item -> item.getId())
                 .boxed().max(Integer::compareTo).orElse(1) + 1);
+        if(person.getGender()==null) return null;
 
         List<Person> people = this.getAll();
 
