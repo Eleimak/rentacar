@@ -101,6 +101,7 @@ public class VehicleWebController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addVehicle(Model model){
         VehicleForm vehicleForm = new VehicleForm();
+        vehicleForm.setUrl("");
         List types = Arrays.asList(Types.values());
 
         model.addAttribute("vehicleForm", vehicleForm);
@@ -150,6 +151,11 @@ public class VehicleWebController {
         Vehicle newVehicle = new Vehicle(vehicleForm.getId(), vehicleForm.getBrand(), vehicleForm.getModel()
                 ,vehicleForm.getCost(), vehicleForm.getLicensePlate(), type, vehicleForm.getYearOfIssue()
                 , vehicleForm.getRentalFee(), vehicleForm.isMaintenance(), vehicleForm.isTaken(),0);
+
+        if (vehicleForm.getUrl() == null) {
+            newVehicle.setUrl("");
+        } else newVehicle.setUrl(vehicleForm.getUrl());
+
         vehicleService.create(newVehicle);
         model.addAttribute("carset", vehicleService.getAll());
         SearchForm searchForm = new SearchForm();
@@ -166,6 +172,8 @@ public class VehicleWebController {
         vehicleForm.setId(vehicle.getId());
         vehicleForm.setBrand(vehicle.getBrand());
         vehicleForm.setModel(vehicle.getModel());
+        vehicleForm.setUrl(vehicle.getUrl());
+        if (vehicle.getUrl() == null) vehicleForm.setUrl("");
         vehicleForm.setCost(vehicle.getCost());
         vehicleForm.setLicensePlate(vehicle.getLicensePlate());
         vehicleForm.setYearOfIssue(vehicle.getYearOfIssue());
@@ -213,6 +221,11 @@ public class VehicleWebController {
         Vehicle newVehicle = new Vehicle(vehicleForm.getId(), vehicleForm.getBrand(), vehicleForm.getModel()
                 ,vehicleForm.getCost(), vehicleForm.getLicensePlate(), type, vehicleForm.getYearOfIssue()
                 , vehicleForm.getRentalFee(), vehicleForm.isMaintenance(), vehicleForm.isTaken());
+
+        if (vehicleForm.getUrl() == null) {
+           newVehicle.setUrl("");
+       } else newVehicle.setUrl(vehicleForm.getUrl());
+
         vehicleService.edit(newVehicle);
         model.addAttribute("carset", vehicleService.getAll());
         SearchForm searchForm = new SearchForm();

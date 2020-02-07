@@ -41,6 +41,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Brand</th>
                 <th scope="col">Model</th>
+                <th scope="col">View</th>
                 <th scope="col">Cost</th>
                 <th scope="col">License Plate Number</th>
                 <th scope="col">Type</th>
@@ -73,10 +74,13 @@
                 </#if>
 -->
 
-                <tr>
+                <tr height="100" align="center">
                     <td>${car.id}</td>
                     <td>${car.brand}</td>
                     <td>${car.model}</td>
+               <#--     <td> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/1994_Audi_100_E_2.0_Front.jpg/305px-1994_Audi_100_E_2.0_Front.jpg" alt="Image is not available" style="width:100px;height:100px;"> </td>
+               -->  <td> <img src="${car.url}" alt="Image is not available" style="max-width:100px;max-height:100px;">
+                    </td>
                     <td>${car.cost}</td>
                     <td>${car.licensePlate}</td>
                     <td>${car.type}</td>
@@ -86,7 +90,6 @@
                     <td>${rent}</td>
                     <td>${car.hourBack}</td>
                     <td><a href="/web/vehicle/delete/${car.id}" Type="Button" class="btn btn-danger" >Delete</a></td><!-- навесить route на кнопку -->
-                    <!--Поставить фотку урны вместо конпки удаления-->
                     <td><a href="/web/vehicle/edit/${car.id}" Type="Button" class="btn btn-danger" >Edit</a></td>
                 </tr>
             </#list>
