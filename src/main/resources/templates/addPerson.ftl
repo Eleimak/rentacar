@@ -4,15 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Person</title>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet"
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <style>
+        body {
+            background-image: url('/img/logo.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 110px 90px;
+            background-position: center top;
+        }
+
+        input[type=submit] {
+            display: inline-block;
+            border: none;
+            padding: .5rem;
+            margin: 0;
+            color: white;
+            font-family: sans-serif;
+            font-size: 1rem;
+            line-height: 1;
+            cursor: pointer;
+            text-align: center;
+            transition: background 250ms ease-in-out, transform 150ms ease;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+    </style>
+
 </head>
+
 <body>
-
-
 <div>
     <fieldset>
         <legend>Add person</legend>

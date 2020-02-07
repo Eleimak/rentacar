@@ -8,7 +8,6 @@
     <link rel="stylesheet"
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <style>
         body {
             background-image: url('/img/logo.png');
@@ -44,6 +43,7 @@
     <a href="/web/person/add" type="button" class="btn btn-light" style="float:right; margin-top:5px;"><i class="fa fa-plus-square-o"></i>Add new person</a>
 
     <br>
+
     <div>
             <table class="table table-sm table-striped table-bordered">
                 <tr class="thead-dark">
