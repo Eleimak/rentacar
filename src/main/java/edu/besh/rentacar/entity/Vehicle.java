@@ -18,6 +18,7 @@ public class Vehicle {
     private int id;
     private String brand;
     private String model;
+    private String url;
     private double cost;
     private String licensePlate;
     private Types type;
@@ -90,6 +91,35 @@ public class Vehicle {
         this.rentalFee = rentalFee;
         this.maintenance = maintenance;
         this.taken = taken;
+    }
+
+    public Vehicle(String brand, String model, String url, double cost, String licensePlate, Types type, int yearOfIssue, int rentalFee, boolean maintenance, boolean taken, Integer hourBack) {
+        this.brand = brand;
+        this.model = model;
+        this.url = url;
+        this.cost = cost;
+        this.licensePlate = licensePlate;
+        this.type = type;
+        this.yearOfIssue = yearOfIssue;
+        this.rentalFee = rentalFee;
+        this.maintenance = maintenance;
+        this.taken = taken;
+        this.hourBack = hourBack;
+    }
+
+    public Vehicle(int id, String brand, String model, String url, double cost, String licensePlate, Types type, int yearOfIssue, int rentalFee, boolean maintenance, boolean taken, Integer hourBack) {
+        this.id = id;
+        this.brand = brand;
+        this.model = model;
+        this.url = url;
+        this.cost = cost;
+        this.licensePlate = licensePlate;
+        this.type = type;
+        this.yearOfIssue = yearOfIssue;
+        this.rentalFee = rentalFee;
+        this.maintenance = maintenance;
+        this.taken = taken;
+        this.hourBack = hourBack;
     }
 
     public int getId() {
@@ -172,20 +202,12 @@ public class Vehicle {
         this.taken = taken;
     }
 
-    @Override
-    public String toString() {
-        return "Vehicle{" +
-                "id=" + id +
-                ", brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", cost=" + cost +
-                ", licensePlate='" + licensePlate + '\'' +
-                ", type=" + type +
-                ", yearOfIssue=" + yearOfIssue +
-                ", rentalFee=" + rentalFee +
-                ", maintenance=" + maintenance +
-                ", taken=" + taken +
-                '}';
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Override
@@ -199,5 +221,23 @@ public class Vehicle {
     @Override
     public int hashCode() {
         return Objects.hash(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", url='" + url + '\'' +
+                ", cost=" + cost +
+                ", licensePlate='" + licensePlate + '\'' +
+                ", type=" + type +
+                ", yearOfIssue=" + yearOfIssue +
+                ", rentalFee=" + rentalFee +
+                ", maintenance=" + maintenance +
+                ", taken=" + taken +
+                ", hourBack=" + hourBack +
+                '}';
     }
 }

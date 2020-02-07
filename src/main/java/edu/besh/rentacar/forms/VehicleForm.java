@@ -12,6 +12,7 @@ public class VehicleForm {
     private int id;
     private String brand;
     private String model;
+    private String url= "";
     private double cost;
     private String licensePlate;
     private String type;
@@ -102,20 +103,11 @@ public class VehicleForm {
         this.taken = taken;
     }
 
-    @Override
-    public String toString() {
-        return "VehicleForm{" +
-                "id=" + id +
-                ", brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", cost=" + cost +
-                ", licensePlate='" + licensePlate + '\'' +
-                ", type='" + type + '\'' +
-                ", yearOfIssue=" + yearOfIssue +
-                ", rentalFee=" + rentalFee +
-                ", maintenance=" + maintenance +
-                ", taken=" + taken +
-                '}';
+    public String getUrl() {
+        return url;
     }
 
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

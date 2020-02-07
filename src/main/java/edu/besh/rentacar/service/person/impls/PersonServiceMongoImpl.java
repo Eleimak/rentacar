@@ -79,7 +79,8 @@ public class PersonServiceMongoImpl implements IPersonService {
 
         for (int i = 0; i < persons.size(); i++) {
 
-            if (persons.get(i).getLastName().contains(word)){
+            if (persons.get(i).getLastName()
+                    .toLowerCase().contains(word.toLowerCase())){
 
                 found.add(persons.get(i));
             }
