@@ -103,6 +103,7 @@
                     <td>${car.hourBack}</td>
                     <td><a href="/web/vehicle/delete/${car.id}" type="button" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete ${car.brand} ${car.model} with the license plate: ${car.licensePlate}?');"><i class="fa fa-trash"></i></a></td>
                     <td><a href="/web/vehicle/edit/${car.id}" type="button" class="btn btn-light" ><i class="fa fa-edit"></i>Edit</a></td>
+
                 </tr>
             </#list>
 
