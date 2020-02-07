@@ -59,6 +59,8 @@ public class CustomerServiceImpl implements ICustomerService {
         fakeSet.getCustomers().add(customer);
         return customer; */
 
+        if(customer.getClient() == null) return  null;
+
         int recentID = repository.findAll().stream().mapToInt(item -> item.getId())
                 .boxed().max(Integer::compareTo).orElse(1);
         customer.setId(recentID+1);
