@@ -49,7 +49,7 @@
             <br>
             Model:<@spring.formInput "vehicleForm.model" "" "text"/>
             <br>
-            Url:<@spring.formInput "vehicleForm.url" "" "text"/>
+            URL:<@spring.formInput "vehicleForm.url" "" "text"/>
             <br>
             Cost:<@spring.formInput "vehicleForm.cost" "" "text"/>
             <br>
