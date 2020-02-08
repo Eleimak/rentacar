@@ -29,7 +29,7 @@ public class FakeSet {
         return people;
     }
 
-    private String mercedesUrl = "/img/mercedes.jpg";
+    private String mercedesUrl = "/img/mercedes s-class.jpg";
     private String bmwUrl = "/img/bmw.jpg";
     private String teslaUrl = "/img/tesla.jpg";
 
