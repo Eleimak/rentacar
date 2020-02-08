@@ -64,14 +64,40 @@ public class VehicleServiceImpl implements IVehicleService {
     @Override
     public void delete(int id) {repository.deleteById(id);}
 
-    public List<Vehicle> sortByBrand(){
+    public List<Vehicle> sortByRentalFee(){
         return this.getAll().stream().sorted(Comparator.comparing(Vehicle::getRentalFee))
                 .collect(Collectors.toList());
     }
+
+    public double binarySearchByRentalFeeRecursively(
+            List<Integer> sortedArrayList, int key, int low, int high) {
+        int middle = (low + high) / 2;
+
+        if (high < low) {
+            return -1;
+        }
+
+        if (key == sortedArrayList.get(middle)) {
+            return middle;
+        } else if (key < sortedArrayList.get(middle)) {
+            return binarySearchByRentalFeeRecursively(
+                    sortedArrayList, key, low, middle - 1);
+        } else {
+            return binarySearchByRentalFeeRecursively(
+                    sortedArrayList, key, middle + 1, high);
+        }
+    }
+
+
+
+
+
 
     public List<Vehicle> search(String letters) {
         return this.getAll().stream()
                 .filter(car-> car.getBrand().toLowerCase().contains(letters.toLowerCase()))
                 .collect(Collectors.toList());
     }
+
+
 }

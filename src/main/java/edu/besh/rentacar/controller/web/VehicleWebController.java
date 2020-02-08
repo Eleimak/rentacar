@@ -76,7 +76,7 @@ public class VehicleWebController {
 
     @RequestMapping(value = "/list/sorted", method = RequestMethod.GET)
     String sort(Model model){
-        List<Vehicle> list = vehicleService.sortByBrand();
+        List<Vehicle> list = vehicleService.sortByRentalFee();
         model.addAttribute("carset", list);
         SearchForm searchForm = new SearchForm();
         model.addAttribute("searchForm", searchForm);
