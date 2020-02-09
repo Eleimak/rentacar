@@ -93,7 +93,7 @@ public class VehicleServiceImpl implements IVehicleService {
 
 
 
-    public List<Vehicle> search(String letters) {
+    public List<Vehicle> search(String letters) { ;
         return this.getAll().stream()
                 .filter(car-> car.getBrand().toLowerCase().contains(letters.toLowerCase()))
                 .collect(Collectors.toList());

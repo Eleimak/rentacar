@@ -34,24 +34,14 @@ public class VehicleWebController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     String getAll(Model model){
         List<Vehicle> list = vehicleService.getAll();
-        list.stream().forEach(
-                car -> {
-                    if(car.getHourBack()!= 0){
-                        LocalDateTime carBackTime = LocalDateTime.now()
-                                .withHour(car.getHourBack())
-                                .withMinute(0);
-
-                        int minutes = (int) ChronoUnit.MINUTES
-                                .between(LocalDateTime.now(), carBackTime);
-                        car.setHourBack(minutes);
-                    } else {car.setHourBack(0);}
-                }
-        );
+        this.recalculateTime(list);
         model.addAttribute("carset", list);
         SearchForm searchForm = new SearchForm();
         model.addAttribute("searchForm", searchForm);
         return "vehicleList";
     }
+
+
 
     @PostMapping(value = "/list")
     public String search(Model model,
@@ -66,7 +56,7 @@ public class VehicleWebController {
         else{
           list = vehicleService.search(letters);
         }
-
+        this.recalculateTime(list);
         model.addAttribute("carset", list);
         model.addAttribute("searchForm", searchForm);
         return "vehicleList";
@@ -77,6 +67,7 @@ public class VehicleWebController {
     @RequestMapping(value = "/list/sorted", method = RequestMethod.GET)
     String sort(Model model){
         List<Vehicle> list = vehicleService.sortByRentalFee();
+        this.recalculateTime(list);
         model.addAttribute("carset", list);
         SearchForm searchForm = new SearchForm();
         model.addAttribute("searchForm", searchForm);
@@ -91,7 +82,7 @@ public class VehicleWebController {
     public String delete(Model model, @PathVariable(value = "id")int id){
         vehicleService.delete(id);
         List<Vehicle> list = vehicleService.getAll();
-
+        this.recalculateTime(list);
         model.addAttribute("carset", list);
         SearchForm searchForm = new SearchForm();
         model.addAttribute("searchForm", searchForm);
@@ -157,7 +148,9 @@ public class VehicleWebController {
         } else newVehicle.setUrl(vehicleForm.getUrl());
 
         vehicleService.create(newVehicle);
-        model.addAttribute("carset", vehicleService.getAll());
+        List<Vehicle> list = vehicleService.getAll();
+        this.recalculateTime(list);
+        model.addAttribute("carset", list);
         SearchForm searchForm = new SearchForm();
         model.addAttribute("searchForm", searchForm);
         return "redirect:/web/vehicle/list";
@@ -227,12 +220,28 @@ public class VehicleWebController {
        } else newVehicle.setUrl(vehicleForm.getUrl());
 
         vehicleService.edit(newVehicle);
+
         model.addAttribute("carset", vehicleService.getAll());
         SearchForm searchForm = new SearchForm();
         model.addAttribute("searchForm", searchForm);
         return "redirect:/web/vehicle/list";
     }
 
+    private void recalculateTime(List<Vehicle> list){
+        list.stream().forEach(
+                car -> {
+                    if(car.getHourBack()!= 0){
+                        LocalDateTime carBackTime = LocalDateTime.now()
+                                .withHour(car.getHourBack())
+                                .withMinute(0);
 
+                        int minutes = (int) ChronoUnit.MINUTES
+                                .between(LocalDateTime.now(), carBackTime);
+                        car.setHourBack(minutes);
+                    } else {car.setHourBack(0);}
+                }
+        );
+
+    }
 
 }
