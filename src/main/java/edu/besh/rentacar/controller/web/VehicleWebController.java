@@ -8,6 +8,7 @@
 
 package edu.besh.rentacar.controller.web;
 
+import edu.besh.rentacar.entity.Customer;
 import edu.besh.rentacar.entity.Types;
 import edu.besh.rentacar.entity.Vehicle;
 import edu.besh.rentacar.forms.SearchForm;
@@ -73,7 +74,15 @@ public class VehicleWebController {
         model.addAttribute("searchForm", searchForm);
         return "vehicleList";
     }
-
+    @RequestMapping(value = "/list/sorted", method = RequestMethod.POST)
+    public String searchSorted(Model model,
+                               @ModelAttribute("searchForm") SearchForm searchForm) {
+        String word = searchForm.getString();
+        List<Vehicle> list = vehicleService.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("carset", list);
+        return "vehicleList";
+    }
 
 
 

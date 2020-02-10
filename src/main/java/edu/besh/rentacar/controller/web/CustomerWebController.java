@@ -68,7 +68,15 @@ public class CustomerWebController {
         return "customerList";
     }
 
-
+    @RequestMapping(value = "/list/sorted", method = RequestMethod.POST)
+    public String searchSorted(Model model,
+                               @ModelAttribute("searchForm") SearchForm searchForm) {
+        String word = searchForm.getString();
+        List<Customer> list = customerService.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("customers", list);
+        return "customerList";
+    }
 
 
 
