@@ -74,7 +74,7 @@
 
 <br>
 
-<a href="http://localhost:8080/web/vehicle/list" type="button" class="btn btn-light"><i class="fa fa-chevron-circle-left">
+<a href="/web/vehicle/list" type="button" class="btn btn-light"><i class="fa fa-chevron-circle-left">
     </i>Back to table</a>
 
 </body>

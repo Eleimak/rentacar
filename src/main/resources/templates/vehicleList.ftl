@@ -37,7 +37,7 @@
 
     <br>
 
-    <a href="http://localhost:8080/" type="button" class="btn btn-light" style="float:left; margin-top:5px;"><i class="fa fa-chevron-circle-left"></i>Back to home page</a>
+    <a href="/" type="button" class="btn btn-light" style="float:left; margin-top:5px;"><i class="fa fa-chevron-circle-left"></i>Back to home page</a>
 
     <a href="/web/vehicle/add" type="button" class="btn btn-light" style="float:right; margin-top:5px;"><i class="fa fa-plus-square-o"></i>Add new car</a>
 
@@ -55,7 +55,7 @@
                 <th scope="col">Type</th>
                 <th scope="col">Year of Issue</th>
                 <th scope="col">Rental Price <a href="/web/vehicle/list/sorted" type="button" class="btn btn-outline-light">
-                        <i class="fa fa-sort-numeric-asc"></i></a> <br> <a href="http://localhost:8080/web/vehicle/list" type="button" class="btn btn-outline-light">
+                        <i class="fa fa-sort-numeric-asc"></i></a> <br> <a href="/web/vehicle/list" type="button" class="btn btn-outline-light">
                         <i class="fa fa-undo"></i>Undo sort</a></th>
                 <th scope="col">Is being repaired</th>
                 <th scope="col">Taken</th>
