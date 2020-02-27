@@ -7,6 +7,7 @@ import edu.besh.rentacar.service.person.interfaces.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.*;
 
 @Service
@@ -23,13 +24,13 @@ public class PersonServiceMongoImpl implements IPersonService {
                     new Person(4, "Ray", "Charles", Gender.MALE)
             )
     );
-/*
+
    @PostConstruct
     void init(){
         System.out.println("Saving in database...");
         repository.saveAll(people);
     }
-*/
+
 
     @Override
     public List<Person> getAll() {

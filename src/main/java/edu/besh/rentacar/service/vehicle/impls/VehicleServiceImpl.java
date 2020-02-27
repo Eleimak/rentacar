@@ -30,7 +30,7 @@ public class VehicleServiceImpl implements IVehicleService {
 
     @PostConstruct
     void init(){
-      //  repository.deleteAll();
+        repository.deleteAll();
         repository.saveAll(fakeSet.getVehicles());
     }
 

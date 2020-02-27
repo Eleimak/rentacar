@@ -113,7 +113,7 @@ public class VehicleWebController {
     public String addVehicle(Model model,
                             @ModelAttribute("vehicleForm") VehicleForm vehicleForm){
 
-        Types type = null;
+        Types type = Types.CROSSOVER;
         if (vehicleForm.getType().toUpperCase().equals("CROSSOVER")){
             type = Types.CROSSOVER;
         } else if (vehicleForm.getType().toUpperCase().equals("SUV")){
