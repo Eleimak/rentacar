@@ -16,6 +16,7 @@ public class PersonServiceMongoImpl implements IPersonService {
     @Autowired
     PersonRepository repository;
 
+    /*
     private List<Person> people = new ArrayList<>(
             Arrays.asList(
                     new Person(1, "Ivan", "Ivanov", Gender.MALE),
@@ -30,6 +31,7 @@ public class PersonServiceMongoImpl implements IPersonService {
         System.out.println("Saving in database...");
         repository.saveAll(people);
     }
+    */
 
 
     @Override
