@@ -31,6 +31,7 @@ public class CustomerServiceImpl implements ICustomerService {
     @Autowired
     FakeSet fakeSet;
 
+    /*
    @PostConstruct
     void init(){
         // Person person = personRepository.findById(1).orElse(null);
@@ -39,6 +40,7 @@ public class CustomerServiceImpl implements ICustomerService {
         repository.saveAll(fakeSet.getCustomers());
         // repository.saveAll(fakeSet.getCustomers());
     }
+    */
 
     @Override
     public List<Customer> getAll() {
