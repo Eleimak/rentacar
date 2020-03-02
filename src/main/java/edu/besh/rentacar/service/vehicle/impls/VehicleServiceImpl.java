@@ -28,11 +28,13 @@ public class VehicleServiceImpl implements IVehicleService {
     @Autowired
     FakeSet fakeSet;
 
+    /*
     @PostConstruct
     void init(){
         repository.deleteAll();
         repository.saveAll(fakeSet.getVehicles());
     }
+    */
 
     @Override
     public List<Vehicle> getAll() {
